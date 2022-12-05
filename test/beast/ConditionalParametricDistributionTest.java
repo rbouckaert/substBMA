@@ -5,8 +5,8 @@ import beast.base.inference.distribution.Gamma;
 import beast.base.inference.distribution.Normal;
 import beast.base.inference.distribution.ParametricDistribution;
 import beast.base.inference.parameter.RealParameter;
-import beast.math.distributions.ConditionalParametricDistribution;
 import junit.framework.TestCase;
+import substbma.math.distributions.ConditionalParametricDistribution;
 
 /**
  * Created by IntelliJ IDEA.

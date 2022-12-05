@@ -3,15 +3,15 @@ package beast;
 import beast.base.evolution.alignment.Sequence;
 import beast.base.evolution.tree.TreeParser;
 import junit.framework.TestCase;
+import substbma.core.MCMCNodeFactory;
+import substbma.evolution.likelihood.NewWVTreeLikelihood;
 import beast.base.evolution.alignment.Alignment;
 import beast.base.evolution.tree.Tree;
 import beast.base.evolution.substitutionmodel.Frequencies;
 import beast.base.evolution.substitutionmodel.HKY;
 import beast.base.evolution.sitemodel.SiteModel;
-import beast.evolution.likelihood.NewWVTreeLikelihood;
 import beast.base.evolution.likelihood.TreeLikelihood;
 import beast.base.inference.parameter.RealParameter;
-import beast.core.MCMCNodeFactory;
 
 
 /**

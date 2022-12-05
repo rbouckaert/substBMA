@@ -1,8 +1,8 @@
 package beast;
 import beast.base.inference.parameter.IntegerParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.math.distributions.Multinomial;
 import junit.framework.TestCase;
+import substbma.math.distributions.Multinomial;
 
 /**
  * @author Chieh-Hsi Wu

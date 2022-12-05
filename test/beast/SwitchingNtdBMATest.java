@@ -1,10 +1,10 @@
 package beast;
 
 import beast.base.core.Description;
-import beast.core.parameter.QuietRealParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.evolution.substitutionmodel.SwitchingNtdBMA;
 import junit.framework.TestCase;
+import substbma.core.parameter.QuietRealParameter;
+import substbma.evolution.substitutionmodel.SwitchingNtdBMA;
 
 /**
  * @author Chieh-Hsi

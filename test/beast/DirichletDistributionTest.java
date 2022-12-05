@@ -2,8 +2,8 @@ package beast;
 
 
 import beast.base.inference.parameter.RealParameter;
-import beast.math.distributions.DirichletDistribution;
 import junit.framework.TestCase;
+import substbma.math.distributions.DirichletDistribution;
 
 /**
  * @author Chieh-Hsi Wu

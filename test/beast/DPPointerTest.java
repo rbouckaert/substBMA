@@ -3,12 +3,12 @@ package beast;
 import beast.base.inference.State;
 import beast.base.inference.parameter.IntegerParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.core.parameter.DPPointer;
-import beast.core.parameter.DPValuable;
-import beast.core.parameter.ParameterList;
-import beast.core.parameter.QuietRealParameter;
 //import com.sun.servicetag.SystemEnvironment;
 import junit.framework.TestCase;
+import substbma.core.parameter.DPPointer;
+import substbma.core.parameter.DPValuable;
+import substbma.core.parameter.ParameterList;
+import substbma.core.parameter.QuietRealParameter;
 
 /**
  * @author Chieh-Hsi Wu

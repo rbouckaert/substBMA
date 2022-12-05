@@ -2,7 +2,8 @@ package beast;
 
 
 import junit.framework.TestCase;
-import beast.math.distributions.IntegerUniformDistribution;
+import substbma.math.distributions.IntegerUniformDistribution;
+
 import org.apache.commons.math.distribution.ContinuousDistribution;
 import org.apache.commons.math.distribution.Distribution;
 

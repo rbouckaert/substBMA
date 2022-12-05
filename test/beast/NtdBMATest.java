@@ -1,9 +1,9 @@
 package beast;
 
-import beast.core.parameter.QuietRealParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.evolution.substitutionmodel.NtdBMA;
 import junit.framework.TestCase;
+import substbma.core.parameter.QuietRealParameter;
+import substbma.evolution.substitutionmodel.NtdBMA;
 
 /**
  * @author Chieh-Hsi Wu

@@ -4,14 +4,14 @@ import beast.base.inference.distribution.Normal;
 import beast.base.inference.distribution.ParametricDistribution;
 import beast.base.inference.parameter.IntegerParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.core.parameter.DPPointer;
-import beast.core.parameter.DPValuable;
-import beast.core.parameter.ParameterList;
-import beast.core.parameter.QuietRealParameter;
-import beast.math.distributions.DirichletProcess;
-import beast.math.distributions.MultivariateNormal;
-import beast.math.distributions.ParameterListPrior;
 import junit.framework.TestCase;
+import substbma.core.parameter.DPPointer;
+import substbma.core.parameter.DPValuable;
+import substbma.core.parameter.ParameterList;
+import substbma.core.parameter.QuietRealParameter;
+import substbma.math.distributions.DirichletProcess;
+import substbma.math.distributions.MultivariateNormal;
+import substbma.math.distributions.ParameterListPrior;
 
 /**
  * @author Chieh-Hsi Wu

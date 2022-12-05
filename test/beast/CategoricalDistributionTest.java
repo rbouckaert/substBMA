@@ -2,8 +2,8 @@ package beast;
 
 import beast.base.inference.parameter.IntegerParameter;
 import beast.base.inference.parameter.RealParameter;
-import beast.math.distributions.CategoricalDistribution;
 import junit.framework.TestCase;
+import substbma.math.distributions.CategoricalDistribution;
 
 /**
  * @author Chieh-Hsi Wu
