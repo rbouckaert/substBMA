@@ -1,9 +1,9 @@
 package beast.evolution.substitutionmodel;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
-import beast.evolution.tree.Node;
-import beast.core.parameter.RealParameter;
+import beast.base.evolution.tree.Node;
+import beast.base.inference.parameter.RealParameter;
 
 import java.util.Arrays;
 

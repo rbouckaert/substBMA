@@ -1,8 +1,8 @@
 package beast.core.util;
 
-import beast.core.Function;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 
 /**
  * Created by IntelliJ IDEA.

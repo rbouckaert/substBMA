@@ -1,15 +1,19 @@
 package beast.evolution.tree.coalescent;
 
 
-import beast.core.CalculationNode;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Input.Validate;
-import beast.core.State;
-import beast.core.parameter.RealParameter;
+import beast.base.inference.CalculationNode;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Input.Validate;
+import beast.base.inference.State;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.tree.Scaler;
-import beast.evolution.tree.TreeDistribution;
-import beast.math.Binomial;
+import beast.base.evolution.tree.IntervalList;
+import beast.base.evolution.tree.IntervalType;
+import beast.base.evolution.tree.TreeDistribution;
+import beast.base.evolution.tree.TreeIntervals;
+import beast.base.evolution.tree.coalescent.PopulationFunction;
+import beast.base.util.Binomial;
 
 import java.util.Collections;
 import java.util.List;

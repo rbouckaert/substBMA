@@ -1,15 +1,17 @@
 package beast.evolution.likelihood;
 
-import beast.app.BeastMCMC;
-import beast.core.Description;
-import beast.core.MCMCNodeFactory;
+import beastfx.app.beast.BeastMCMC;
+import beast.base.core.Description;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
+import beast.core.MCMCNodeFactory;
 import beast.core.parameter.ChangeType;
-import beast.core.Input;
-import beast.evolution.tree.Tree;
+import beast.base.core.Input;
+import beast.base.core.ProgramStatus;
+import beast.base.evolution.tree.Tree;
 
 import javax.sound.midi.SysexMessage;
 
@@ -36,8 +38,8 @@ public class DPSepTreeLikelihood extends DPTreeLikelihood{
     }
 
     public void initAndValidate() {
-        useThreads = useThreadsInput.get() && (BeastMCMC.m_nThreads > 1);
-        useThreadsEvenly = useThreadsEvenlyInput.get() && (BeastMCMC.m_nThreads > 1);
+        useThreads = useThreadsInput.get() && (ProgramStatus.m_nThreads > 1);
+        useThreadsEvenly = useThreadsEvenlyInput.get() && (ProgramStatus.m_nThreads > 1);
 
         alignment = dataInput.get();
         int patternCount = alignment.getPatternCount();

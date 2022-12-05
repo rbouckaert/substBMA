@@ -1,9 +1,10 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Distribution;
-import beast.core.Input;
-import beast.core.State;
+import beast.base.core.Description;
+import beast.base.inference.Distribution;
+import beast.base.core.Input;
+import beast.base.inference.State;
+import beast.base.inference.distribution.ParametricDistribution;
 import beast.core.parameter.ParameterList;
 
 import java.util.ArrayList;

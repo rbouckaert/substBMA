@@ -1,8 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Input;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
 
 /**
  * Created by IntelliJ IDEA.

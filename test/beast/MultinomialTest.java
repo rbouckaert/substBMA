@@ -1,6 +1,6 @@
 package beast;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.math.distributions.Multinomial;
 import junit.framework.TestCase;
 

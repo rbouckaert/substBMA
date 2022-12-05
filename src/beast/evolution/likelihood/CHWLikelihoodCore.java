@@ -1,5 +1,7 @@
 package beast.evolution.likelihood;
 
+import beast.base.evolution.likelihood.BeerLikelihoodCore;
+
 /**
  * Created by IntelliJ IDEA.
  * User: cwu080

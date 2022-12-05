@@ -1,10 +1,16 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Input;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.ContinuousDistribution;
 import org.apache.commons.math.distribution.Distribution;
+
+import beast.base.inference.distribution.LogNormalDistributionModel;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.util.InputUtil;
+
 import org.apache.commons.math.distribution.NormalDistributionImpl;
 
 /**
@@ -24,27 +30,27 @@ public class LogNormal extends LogNormalDistributionModel {
     	m_bMeanInRealSpace = hasMeanInRealSpaceInput.get();
 
         if (MParameterInput.get() != null) {
-            if (MParameterInput.get().getLower() == null) {
-                MParameterInput.get().setLower(Double.NEGATIVE_INFINITY);
+            if (((RealParameter)MParameterInput.get()).getLower() == null) {
+            	((RealParameter)MParameterInput.get()).setLower(Double.NEGATIVE_INFINITY);
             }
-            if (MParameterInput.get().getUpper() == null) {
-                MParameterInput.get().setUpper(Double.POSITIVE_INFINITY);
+            if (((RealParameter)MParameterInput.get()).getUpper() == null) {
+            	((RealParameter)MParameterInput.get()).setUpper(Double.POSITIVE_INFINITY);
             }
         }
 
         if (SParameterInput.get() != null) {
-            if (SParameterInput.get().getLower() == null) {
-                SParameterInput.get().setLower(0.0);
+            if (((RealParameter)SParameterInput.get()).getLower() == null) {
+            	((RealParameter)SParameterInput.get()).setLower(0.0);
             }
-            if (SParameterInput.get().getUpper() == null) {
-                SParameterInput.get().setUpper(Double.POSITIVE_INFINITY);
+            if (((RealParameter)SParameterInput.get()).getUpper() == null) {
+            	((RealParameter)SParameterInput.get()).setUpper(Double.POSITIVE_INFINITY);
             }
         }
         refresh();
     }
 
     public boolean requiresRecalculation(){
-        if(MParameterInput.get().somethingIsDirty() || SParameterInput.get().somethingIsDirty()){
+        if(InputUtil.isDirty(sIsPrecInput) || InputUtil.isDirty(SParameterInput)){
             refresh();
         }
         return super.requiresRecalculation();
@@ -68,7 +74,7 @@ public class LogNormal extends LogNormalDistributionModel {
     }
 
     public void setMean(double mean){
-        MParameterInput.get().setValue(0,mean);
+        ((RealParameter)MParameterInput.get()).setValue(0,mean);
         refresh();
     }
 
@@ -79,12 +85,12 @@ public class LogNormal extends LogNormalDistributionModel {
 		if (SParameterInput.get() == null) {
 			fSigma = 1;
 		} else {
-			fSigma = SParameterInput.get().getValue();
+			fSigma = SParameterInput.get().getArrayValue();
 		}
 		if (MParameterInput.get() == null) {
 			fMean = 0;
 		} else {
-			fMean = MParameterInput.get().getValue();
+			fMean = MParameterInput.get().getArrayValue();
 		}
 
         if (sIsPrec) {

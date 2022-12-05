@@ -1,7 +1,12 @@
 package beast;
 
-import beast.core.parameter.*;
-import beast.core.State;
+import beast.base.inference.State;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.core.parameter.DPPointer;
+import beast.core.parameter.DPValuable;
+import beast.core.parameter.ParameterList;
+import beast.core.parameter.QuietRealParameter;
 //import com.sun.servicetag.SystemEnvironment;
 import junit.framework.TestCase;
 

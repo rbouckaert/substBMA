@@ -1,7 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.base.core.Input;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
 import org.apache.commons.math.distribution.ContinuousDistribution;
 import org.apache.commons.math.distribution.GammaDistributionImpl;
 

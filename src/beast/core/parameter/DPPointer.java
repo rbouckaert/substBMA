@@ -1,15 +1,17 @@
 package beast.core.parameter;
 
-import beast.core.Input;
-import beast.core.StateNode;
-import beast.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.StateNode;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.core.Description;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.PrintStream;
 
-import beast.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.Alignment;
 import org.w3c.dom.Node;
 
 /**
@@ -380,7 +382,7 @@ public class DPPointer extends StateNode {
 
         /** Loggable implementation **/
     @Override
-    public void log(int nSample, PrintStream out) {
+    public void log(long nSample, PrintStream out) {
         DPPointer dPPointer = (DPPointer) getCurrent();
         int dim = dPPointer.getDimension();
         for(int i = 0; i < dim; i++){

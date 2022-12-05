@@ -1,5 +1,10 @@
 package beast.math.distributions;
 
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Distribution;
+import beast.base.inference.State;
 import beast.core.*;
 
 

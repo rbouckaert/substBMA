@@ -1,14 +1,14 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
-import beast.evolution.alignment.Alignment;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.alignment.Alignment;
 import beast.evolution.sitemodel.DPMultiAlignSiteModel;
 import beast.evolution.sitemodel.DummySiteModel;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
 
 import java.lang.reflect.Array;
@@ -185,7 +185,7 @@ public class MultiAlignmentTempWVTreeLikelihood extends TempWVTreeLikelihood{
             for(int i = 0; i < sites.length;i++){
                 alignmentIndex = dpMultiAlignSiteModel.getAlignmentIndex(sites[i]);
                 patternIndex =  tempWVTreeLikelihoods[alignmentIndex].dataInput.get().getPatternIndex(siteIndexWithinAlignment[sites[i]]);
-                siteLogP[i] = tempWVTreeLikelihoods[alignmentIndex].patternLogLikelihoods[patternIndex];
+                siteLogP[i] = tempWVTreeLikelihoods[alignmentIndex].getPatternLogLikelihood(patternIndex);
             }
         }catch(Exception e){
             throw new RuntimeException(e);
@@ -210,7 +210,7 @@ public class MultiAlignmentTempWVTreeLikelihood extends TempWVTreeLikelihood{
                 if(sites[i] != exceptSite){
                     alignmentIndex = dpMultiAlignSiteModel.getAlignmentIndex(sites[i]);
                     patternIndex =  tempWVTreeLikelihoods[alignmentIndex].dataInput.get().getPatternIndex(siteIndexWithinAlignment[sites[i]]);
-                    siteLogP[k++] = tempWVTreeLikelihoods[alignmentIndex].patternLogLikelihoods[patternIndex];
+                    siteLogP[k++] = tempWVTreeLikelihoods[alignmentIndex].getPatternLogLikelihood(patternIndex);
                 }
             }
         }catch(Exception e){
@@ -239,7 +239,7 @@ public class MultiAlignmentTempWVTreeLikelihood extends TempWVTreeLikelihood{
     private void setRateAndCalculateLogP(RealParameter rateParameter) throws Exception{
 
         for(int i = 0; i < alignmentPatternWeightChanged.size(); i++){
-            DummySiteModel siteModel = (DummySiteModel) tempWVTreeLikelihoods[alignmentPatternWeightChanged.get(i)].m_siteModel;
+            DummySiteModel siteModel = (DummySiteModel) tempWVTreeLikelihoods[alignmentPatternWeightChanged.get(i)].getSiteModel();
             siteModel.getRateParameter().setValueQuietly(0,rateParameter.getValue());
             tempWVTreeLikelihoods[alignmentPatternWeightChanged.get(i)].calculateLogP();
         }

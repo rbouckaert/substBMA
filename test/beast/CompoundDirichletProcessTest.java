@@ -3,6 +3,10 @@ package beast;
 
 import junit.framework.TestCase;
 import beast.math.distributions.*;
+import beast.base.inference.distribution.Normal;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.core.parameter.*;
 
 /**

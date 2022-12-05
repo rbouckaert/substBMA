@@ -1,14 +1,15 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.*;
 import beast.evolution.likelihood.*;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.math.distributions.DirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -276,7 +277,7 @@ public class FasterRateDPPGibbsSampler  extends Operator {
 
                 if(proposedIndex >= counter && zeroCount > -1){//Singleton takes new value
 
-                    rateList = rateListInput.get(this);
+                    rateList = rateListInput.get();
 
                     int paramListIndex = ratePointers.indexInList(index,rateList);
                     //System.err.println("paramListIndex: "+paramListIndex);
@@ -288,12 +289,12 @@ public class FasterRateDPPGibbsSampler  extends Operator {
                 }else{
                     //Singleton takes existing value or
                     //non-singleton takes new or existing value
-                    ratePointers = ratePointersInput.get(this);
+                    ratePointers = ratePointersInput.get();
                     ratePointers.point(index, rateProposal);
 
                     //Non singleton takes new value
                     if(proposedIndex >= counter){
-                        rateList = rateListInput.get(this);
+                        rateList = rateListInput.get();
                         rateList.addParameter(rateProposal);
                         //System.out.println("add cluster");
                     }
@@ -302,7 +303,7 @@ public class FasterRateDPPGibbsSampler  extends Operator {
 
                 //If any cluster has no member then it is removed.
                 if(zeroCount > -1){
-                    rateList = rateListInput.get(this);
+                    rateList = rateListInput.get();
                     rateList.removeParameter(zeroCount);
                     //System.err.println("remove cluster");
                 }

@@ -1,9 +1,10 @@
 package beast.core.parameter;
 
-import beast.core.Description;
-import beast.core.Function;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.tree.Scaler;
 
 import java.io.PrintStream;
@@ -121,7 +122,7 @@ public class PointerMean extends Scaler implements Loggable, Function {
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
         out.print(getMean() + "\t");
 	}
 

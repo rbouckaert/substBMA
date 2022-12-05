@@ -1,10 +1,10 @@
 package beast.evolution.operators;
 
-import beast.core.Input;
-import beast.core.Operator;
-import beast.core.parameter.RealParameter;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.util.Randomizer;
 
 import java.util.Random;
 

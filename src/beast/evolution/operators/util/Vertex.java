@@ -1,8 +1,8 @@
 package beast.evolution.operators.util;
 
-import beast.core.BEASTObject;
-import beast.core.Input;
-import beast.core.Description;
+import beast.base.core.BEASTObject;
+import beast.base.core.Input;
+import beast.base.core.Description;
 
 /**
  * @author Chieh-Hsi Wu

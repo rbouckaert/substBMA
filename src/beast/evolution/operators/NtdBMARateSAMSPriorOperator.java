@@ -1,14 +1,15 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.*;
 import beast.evolution.likelihood.DPTreeLikelihood;
 import beast.evolution.likelihood.TempWVTreeLikelihood;
 import beast.math.distributions.CompoundDirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -324,24 +325,24 @@ public class NtdBMARateSAMSPriorOperator extends Operator {
                     + ratesBaseDistr.calcLogP(newRates);
 
             //Perform a split
-            paramList  = paramListInput.get(this);
-            modelList  = modelListInput.get(this);
-            freqsList  = freqsListInput.get(this);
-            ratesList  = ratesListInput.get(this);
-            paramPointers = paramPointersInput.get(this);
-            modelPointers = modelPointersInput.get(this);
-            freqsPointers = freqsPointersInput.get(this);
-            ratesPointers = ratesPointersInput.get(this);
+            paramList  = paramListInput.get();
+            modelList  = modelListInput.get();
+            freqsList  = freqsListInput.get();
+            ratesList  = ratesListInput.get();
+            paramPointers = paramPointersInput.get();
+            modelPointers = modelPointersInput.get();
+            freqsPointers = freqsPointersInput.get();
+            ratesPointers = ratesPointersInput.get();
 
             paramList.splitParameter(clusterIndex,newParam);
             modelList.splitParameter(clusterIndex,newModel);
             freqsList.splitParameter(clusterIndex,newFreqs);
             ratesList.splitParameter(clusterIndex,newRates);
             //Form a new cluster with index 1
-                paramPointers = paramPointersInput.get(this);
-                modelPointers = modelPointersInput.get(this);
-                freqsPointers = freqsPointersInput.get(this);
-                ratesPointers = ratesPointersInput.get(this);
+                paramPointers = paramPointersInput.get();
+                modelPointers = modelPointersInput.get();
+                freqsPointers = freqsPointersInput.get();
+                ratesPointers = ratesPointersInput.get();
                 for(int i = 0 ; i < cluster1Count ;i++){
                     paramPointers.point(sitesInCluster1[i],newParam);
                     modelPointers.point(sitesInCluster1[i],newModel);

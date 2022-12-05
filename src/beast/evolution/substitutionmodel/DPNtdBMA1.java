@@ -1,14 +1,22 @@
 package beast.evolution.substitutionmodel;
 
-import beast.core.*;
-import beast.core.parameter.*;
+
 
 import java.util.ArrayList;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.core.MCMCNodeFactory;
+import beast.core.PluginList;
+import beast.core.Recycle;
+import beast.core.parameter.ChangeType;
+import beast.core.parameter.ParameterList;
 
 /**
  * @author Chieh-Hsi Wu
  */
-@Description("A list of SwitchingNtdBMA classes for DPP.")
+@Description
+("A list of SwitchingNtdBMA classes for DPP.")
 public class DPNtdBMA1 extends DPNtdBMA implements PluginList, Recycle {
 
 

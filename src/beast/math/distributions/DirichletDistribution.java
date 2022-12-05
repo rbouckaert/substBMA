@@ -1,10 +1,11 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Function;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.util.Randomizer;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.inference.distribution.Dirichlet;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -18,8 +19,8 @@ public class DirichletDistribution extends Dirichlet{
             new RealParameter(new Double[]{1.0})
     );
 
-    RealParameter alpha;
-    RealParameter scale;
+    Function alpha;
+    Function scale;
 
 
 
@@ -52,12 +53,12 @@ public class DirichletDistribution extends Dirichlet{
 	}
 
     public double getScaleValue(){
-        return scale.getValue();
+        return scale.getArrayValue();
     }
 
     @Override
     public Double[][] sample(int size){
-        double scaleVal = scale.getValue();
+        double scaleVal = scale.getArrayValue();
         int dim = alpha.getDimension();
         Double[][] samples = new Double[size][];
         try{
@@ -66,7 +67,7 @@ public class DirichletDistribution extends Dirichlet{
                 Double[] dirichletSample = new Double[dim];
                 double sum = 0.0;
                 for(int j  =0; j < dim;j++){
-                    dirichletSample[j] = Randomizer.nextGamma(alpha.getValue(j)*scaleVal,1.0);
+                    dirichletSample[j] = Randomizer.nextGamma(alpha.getArrayValue(j)*scaleVal,1.0);
                     sum += dirichletSample[j];
                 }
                 for(int j = 0; j < dim;j++){
@@ -179,8 +180,8 @@ public class DirichletDistribution extends Dirichlet{
     @Override
     public double calcLogP(Function pX) {
 
-        double scaleVal = scale.getValue();
-        Double [] fAlpha = alpha.getValues();
+        double scaleVal = scale.getArrayValue();
+        double [] fAlpha = alpha.getDoubleValues();
         //System.out.println(alpha.getID());
         for(int i = 0; i < pX.getDimension(); i++){
             if(pX.getArrayValue(i) == 0.0 || pX.getArrayValue(i) == 1.0){

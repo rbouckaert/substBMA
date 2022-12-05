@@ -1,22 +1,23 @@
 package beast.evolution.likelihood;
 
-import beast.core.Citation;
-import beast.core.Description;
+
+import beast.base.core.Citation;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.AscertainedAlignment;
-import beast.evolution.branchratemodel.BranchRateModel;
-import beast.evolution.branchratemodel.StrictClockModel;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.AscertainedAlignment;
+import beast.base.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.branchratemodel.StrictClockModel;
 //import beast.evolution.sitemodel.QuietGammaSiteBMA;
 import beast.evolution.sitemodel.QuietGammaSiteBMA;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.sitemodel.SiteModelInterface;
+import beast.base.evolution.sitemodel.SiteModelInterface;
 import beast.evolution.substitutionmodel.NtdBMA;
-import beast.evolution.substitutionmodel.SubstitutionModel;
-import beast.evolution.tree.Node;
-import beast.evolution.tree.Tree;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 
 import java.util.Arrays;
 
@@ -215,6 +216,10 @@ public class NewWVTreeLikelihood extends QuietTreeLikelihood {
 
 
     boolean valueChanged = false;
+    double m_fScale = 1.01;
+    int m_nScale = 0;
+    int X = 100;
+
     @Override
     public double calculateLogP() {
 
@@ -345,7 +350,7 @@ public class NewWVTreeLikelihood extends QuietTreeLikelihood {
     }
 
     /* Assumes there IS a branch rate model as opposed to traverse() */
-    int traverse(Node node) {
+    protected int traverse(Node node) {
 
         int update = (node.isDirty()| hasDirt);
         //System.out.println("update node: "+update);
@@ -416,12 +421,12 @@ public class NewWVTreeLikelihood extends QuietTreeLikelihood {
                     System.out.println();*/
 
                     //System.out.println(m_iConstantPattern == null);
-                    if (constantPattern != null) { // && !SiteModel.g_bUseOriginal) {
+                    if (getConstantPattern() != null) { // && !SiteModel.g_bUseOriginal) {
                     	proportionInvariant = m_siteModel.getProportionInvariant();
                         //System.out.println("m_fProportionInvariant:"+m_fProportionInvariant);
 
                     	// some portion of sites is invariant, so adjust root partials for this
-                    	for (int i : constantPattern) {
+                    	for (int i : getConstantPattern()) {
                             //System.out.println(i+" "+m_fRootPartials[i]+" "+m_fProportionInvariant);
                 			m_fRootPartials[i] += proportionInvariant;
                     	}

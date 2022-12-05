@@ -1,13 +1,22 @@
 package beast.evolution.likelihood;
 
-import beast.app.BeastMCMC;
-import beast.core.*;
+
+import beastfx.app.beast.BeastMCMC;
+import beast.core.MCMCNodeFactory;
+import beast.core.PluginList;
 import beast.core.parameter.ChangeType;
 import beast.core.parameter.DPValuable;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.sitemodel.DPSiteModel;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.tree.Tree;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.ProgramStatus;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.likelihood.GenericTreeLikelihood;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.Distribution;
+import beast.base.inference.State;
 
 import javax.sound.midi.SysexMessage;
 import java.lang.Runnable;
@@ -55,8 +64,8 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
     protected DPValuable dpVal;
 
     public void initAndValidate() {
-        useThreads = useThreadsInput.get() && (BeastMCMC.m_nThreads > 1);
-        useThreadsEvenly = useThreadsEvenlyInput.get() && (BeastMCMC.m_nThreads > 1);
+        useThreads = useThreadsInput.get() && (ProgramStatus.m_nThreads > 1);
+        useThreadsEvenly = useThreadsEvenlyInput.get() && (ProgramStatus.m_nThreads > 1);
         dpVal = dpValInput.get();
         if(!(siteModelInput.get() instanceof DPSiteModel)){
             throw new RuntimeException("DPSiteModel required for site model.");
@@ -219,7 +228,7 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
         try {
             //System.out.println("What?");
             int nrOfDirtyDistrs = 0;
-            for (Distribution dists : treeLiks) {
+            for (NewWVTreeLikelihood dists : treeLiks) {
                 if (dists.isDirtyCalculation()) {
                     nrOfDirtyDistrs++;
                 }
@@ -231,7 +240,7 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
                 if (dists.isDirtyCalculation()) {
                     //System.out.println("isDirty");
                     CoreRunnable coreRunnable = new CoreRunnable(dists);
-                    BeastMCMC.g_exec.execute(coreRunnable);
+                    ProgramStatus.g_exec.execute(coreRunnable);
                 }
             }
             m_nCountDown.await();
@@ -244,7 +253,7 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
             useThreads = false;
             //System.err.println("Stop using threads: " + e.getMessage());
             // refresh thread pool
-            BeastMCMC.g_exec = Executors.newFixedThreadPool(BeastMCMC.m_nThreads);
+            ProgramStatus.g_exec = Executors.newFixedThreadPool(ProgramStatus.m_nThreads);
             return calculateLogP();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -267,30 +276,30 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
             }
 
 
-            if(tempDists.size() < BeastMCMC.m_nThreads){
+            if(tempDists.size() < ProgramStatus.m_nThreads){
                 m_nCountDown = new CountDownLatch(tempDists.size());
                 for(Distribution distr:tempDists){
                     CoreRunnable coreRunnable = new CoreRunnable(distr);
-                    BeastMCMC.g_exec.execute(coreRunnable);
+                    ProgramStatus.g_exec.execute(coreRunnable);
                 }
             }else{
             //m_nCountDown = new CountDownLatch(nrOfDirtyDistrs);
-                m_nCountDown = new CountDownLatch(BeastMCMC.m_nThreads);
+                m_nCountDown = new CountDownLatch(ProgramStatus.m_nThreads);
                 // kick off the threads
-                int batchSize = tempDists.size()/ BeastMCMC.m_nThreads;
+                int batchSize = tempDists.size()/ ProgramStatus.m_nThreads;
 
                 int start, end;
-                for (int i = 0; i < BeastMCMC.m_nThreads; i++) {
+                for (int i = 0; i < ProgramStatus.m_nThreads; i++) {
                     //if (dists.isDirtyCalculation()) {    //todo
                     start = batchSize*i;
                     end = batchSize*(i + 1)-1;
-                    if(i == BeastMCMC.m_nThreads -1){
-                        end += tempDists.size()% BeastMCMC.m_nThreads;
+                    if(i == ProgramStatus.m_nThreads -1){
+                        end += tempDists.size()% ProgramStatus.m_nThreads;
                     }
 
                     EvenlyCoreRunnable coreRunnable = new EvenlyCoreRunnable(start, end, tempDists);
 
-                    BeastMCMC.g_exec.execute(coreRunnable);
+                    ProgramStatus.g_exec.execute(coreRunnable);
                     //}
 
                 }
@@ -307,7 +316,7 @@ public class DPTreeLikelihood extends GenericTreeLikelihood implements PluginLis
             useThreadsEvenly = false;
             System.err.println("Stop using threads: " + e.getMessage());
             // refresh thread pool
-            BeastMCMC.g_exec = Executors.newFixedThreadPool(BeastMCMC.m_nThreads);
+            ProgramStatus.g_exec = Executors.newFixedThreadPool(ProgramStatus.m_nThreads);
             return calculateLogP();
         } catch (InterruptedException e) {
             e.printStackTrace();

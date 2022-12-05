@@ -1,5 +1,5 @@
 <beast version='2.0'
-       namespace='beast.core:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.branchratemodel:beast.evolution.likelihood:beast.core.parameter:beast.math.distributions:beast.evolution.operators.util'>
+       namespace='beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.branchratemodel:beast.base.evolution.likelihood:beast.base.inference.parameter:beast.base.inference.distribution:beast.base.evolution.operator:beast.base.inference.operator.util'>
 
 <!-- The sequence alignment -->
 <!-- Generated with seed: 127 -->
@@ -38,37 +38,37 @@
 		<sequence id="seq_taxon28" taxon="taxon28" totalcount="4" value="TCGTTTACAATAGGGCACGCCTTCTCCCTAGTGCACAAAGGCGCCAATTAAGATTAGAATGAGCGTATTAAGGCCCTGTAAAATCAACGGGCAAGGGGTGAAAGCCTTGCGTGGAGCTTATCCGTGCGGCTAGGCCTGCCGTAATCAGTACCATACCGCAAATAGGCTCTTGAGATGTTGGGGGATGTCATTGTAGGGAGCGTGTTGCCATGGTCCGTATTAAAAGGAGTGTGAAAAGTAGTAGCCAGGACGTGGATCAACTCTGGCCTAATCTTACATTATTCTTGCACAGTACATTCCCCTTCCGCTGGATACAAGTAGTAAATTTACATGATCTCCCGGCCAGAGGCGTCCGCCGTAGTATGCGTGCAGACAGACGCGAACGCTGAATCTATCGTAACGTTGGTACGTTGTTCCTTTGCAACGATGTTATTGAATTTTTGGTATGGCTGCTCAGACGAGTGTGTGAACTTCCCGGATGAATTTGGATCGCAGTAATGACTGCTCTCTCCTGCTTTGGGTCAGACAACGACACCTTCGATAGGAACGTTATAGACAACAACTCTTGGACATGTACTTGTGCGATTTATCTCATCAGGGGGGTATACTCTGCCGTGAAGTGCTCTTGAAGGAGGAATTGGGGTAACGTTACCGAACAAATTTCGTGAGAGCCGTTGCGCTGTGTATTCGGTTTCCGCCGAGGCTTCATGAATGGTTTTACGCCCCGCTGAATAAAGATGGGGTTAAGAACGCATGTCATCATACGCTTGCTGAAGTGGGCGGGCCTCATCCGTAAACTCAGTTGTGCGAAACCGCAACACACGCCGGTACGGGGAAAAACTAGATTGTATTAAAACACGAACCGATACTAATATGAGGGACATTCTTGACGTAATCTCCAAGCAGAACCTATACTGAGCTACAGCCGTAACCGTTTTTTGGACGTGGACTATTGGCCATAGAAGCGAGACCCCCACGCTCCATTGTCGAGCTATTTAAT"/>
 	</data>
 
-    <taxonset spec='beast.evolution.alignment.TaxonSet' id='taxa'>
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon1"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon21" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon26" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon11" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon13" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon18" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon7"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon30" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon12" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon14" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon20" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon24" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon17" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon23" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon10" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon6"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon22" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon25" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon9"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon19" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon8"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon2"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon16" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon29" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon3"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon15" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon5"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon4"  />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon27" />
-        <taxon spec='beast.evolution.alignment.Taxon' id="taxon28" />
+    <taxonset spec='beast.base.evolution.alignment.TaxonSet' id='taxa'>
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon1"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon21" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon26" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon11" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon13" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon18" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon7"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon30" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon12" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon14" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon20" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon24" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon17" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon23" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon10" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon6"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon22" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon25" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon9"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon19" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon8"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon2"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon16" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon29" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon3"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon15" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon5"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon4"  />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon27" />
+        <taxon spec='beast.base.evolution.alignment.Taxon' id="taxon28" />
     </taxonset>
 
     <input spec="ParameterList" id="parameterList">
@@ -122,11 +122,11 @@
         <dpValRate idref="dpValuable.rate"/>
     </input>
 
-    <tree spec='beast.util.ClusterTree' id='tree' clusterType='upgma'>
+    <tree spec='beast.base.evolution.tree.ClusterTree' id='tree' clusterType='upgma'>
         <taxa idref='alignment'/>
     </tree>
 
-    <input spec="beast.evolution.tree.TreeScaler" id="treeScaler" scaleToHeight="1.0">
+    <input spec="beast.base.evolution.tree.TreeScaler" id="treeScaler" scaleToHeight="1.0">
         <initial idref='tree'/>
     </input>
 
@@ -197,14 +197,14 @@
         <input name="plugin" idref="dpNtdSiteModel"/>
     </input-->
 
-    <input spec='beast.evolution.speciation.CalibratedYuleModel' type="full" id="yule">
+    <input spec='beast.base.evolution.speciation.CalibratedYuleModel' type="full" id="yule">
         <birthRate id="birthRate" spec='parameter.RealParameter' value="2.0"/>
         <tree idref='tree'/>
 
-        <calibrations spec='beast.evolution.speciation.CalibrationPoint' id='cal'>
+        <calibrations spec='beast.base.evolution.speciation.CalibrationPoint' id='cal'>
             <taxonset idref="taxa"/>
             <!-- This Gamma distribution approximates Normal(mean=0,stdev=0.1)-->
-            <distr spec="beast.math.distributions.Gamma" alpha="100" beta="0.01"/>
+            <distr spec="beast.base.inference.distribution.Gamma" alpha="100" beta="0.01"/>
         </calibrations>
     </input>
 
@@ -238,7 +238,7 @@
         <input name="baseDistr" spec="beast.math.distributions.CategoricalDistribution"  offset="1">
             <input spec="RealParameter" name="probs" id="categorical.prob" value="0.2 0.2 0.2 0.2 0.2" lower="0.0"/>
         </input>
-        <input name="baseDistr" spec="beast.math.distributions.DirichletDistribution">
+        <input name="baseDistr" spec="beast.base.inference.distribution.DirichletDistribution">
             <input name="alpha" id="dirichlet.prob" spec="RealParameter" value="0.25 0.25 0.25 0.25" lower="0" upper="Infinity"/>
             <input name="scale" id="dirichlet.scale" spec="RealParameter" value="40.0" lower="0" upper="Infinity"/>
         </input>
@@ -327,19 +327,19 @@
                 <distr idref="dp"/>
                 <xList idref="ratesList"/>
             </distribution>
-            <distribution id="hMean.prior" spec="beast.math.distributions.Prior">
-                 <input name="distr" spec="beast.math.distributions.Normal" mean="-2.35" sigma="2.3"/>
+            <distribution id="hMean.prior" spec="beast.base.inference.distribution.Prior">
+                 <input name="distr" spec="beast.base.inference.distribution.Normal" mean="-2.35" sigma="2.3"/>
                  <x idref="lnorm.mean"/>
              </distribution>
-            <distribution id="hCV.prior" spec="beast.math.distributions.Prior">
-                 <input name="distr" spec="beast.math.distributions.Gamma" alpha="1" beta="10"/>
+            <distribution id="hCV.prior" spec="beast.base.inference.distribution.Prior">
+                 <input name="distr" spec="beast.base.inference.distribution.Gamma" alpha="1" beta="10"/>
                  <x idref="lnorm.prec"/>
              </distribution>
-            <distribution id="dScale.prior" spec="beast.math.distributions.Prior">
-                <input name="distr" spec="beast.math.distributions.Gamma" alpha="0.001" beta="1000"/>
+            <distribution id="dScale.prior" spec="beast.base.inference.distribution.Prior">
+                <input name="distr" spec="beast.base.inference.distribution.Gamma" alpha="0.001" beta="1000"/>
                 <x idref="dirichlet.scale"/>
             </distribution>
-            <distribution id="mvnmean.prior" spec="beast.math.distributions.Prior">
+            <distribution id="mvnmean.prior" spec="beast.base.inference.distribution.Prior">
                  <input name="distr" spec="beast.math.distributions.MultivariateNormal">
                      <input name="mean" spec="RealParameter" id="mvnPriorMean"  value="2.11 0.548 0.216 0.359 -0.579"/>
                      <parameter name="precision" id="mvnPriorPrecision" value="
@@ -351,7 +351,7 @@
                  </input>
                  <x idref="mvn.mean"/>
             </distribution>
-            <distribution id="mvnprecision.prior" spec="beast.math.distributions.Prior">
+            <distribution id="mvnprecision.prior" spec="beast.base.inference.distribution.Prior">
                  <input name="distr" spec="beast.math.distributions.Wishart" df="7">
                      <parameter name="scaleMatrix" id="wishartPriorScale" value="
                         8.16 2.44 -0.060 -3.41 -1.59
@@ -363,9 +363,9 @@
                  </input>
                  <x idref="mvn.precision"/>
              </distribution>
-            <distribution spec="beast.math.distributions.Prior">
-                <input name="distr" spec="beast.math.distributions.Normal" mean="1.0" sigma="0.1"/>
-                <x spec="beast.evolution.tree.TreeHeightValuable" id="rootHeight" tree="@tree"/>
+            <distribution spec="beast.base.inference.distribution.Prior">
+                <input name="distr" spec="beast.base.inference.distribution.Normal" mean="1.0" sigma="0.1"/>
+                <x spec="beast.base.evolution.tree.TreeHeightValuable" id="rootHeight" tree="@tree"/>
             </distribution>
             <distribution id="yule.prior" idref='yule'/>
         </distribution>
@@ -494,8 +494,8 @@
             <log idref="dpValuable.subst"/>
             <log idref="dpValuable.rate"/>
             <log idref="treeLik.count"/>
-            <log spec='beast.evolution.tree.TreeHeightLogger' tree='@tree'/>
-            <log spec='beast.core.parameter.ParameterMeanLogger' paramList='@ratesList' pointers="@rates.pointers" dpVal="@dpValuable.rate" tree="@rootHeight"/>
+            <log spec='beast.base.evolution.tree.TreeHeightLogger' tree='@tree'/>
+            <log spec='beast.base.inference.parameter.ParameterMeanLogger' paramList='@ratesList' pointers="@rates.pointers" dpVal="@dpValuable.rate" tree="@rootHeight"/>
             <log idref="ratesList"/>
             <log idref="modelList"/>
             <log idref="birthRate"/>
@@ -509,7 +509,7 @@
             <log idref="dpValuable.rate"/>
             <log idref="treeLikelihood"/>
             <log idref="treeLik.count"/>
-            <log spec='beast.core.parameter.ParameterMeanLogger' paramList='@ratesList' pointers="@rates.pointers" dpVal="@dpValuable.rate" tree="@rootHeight"/>
+            <log spec='beast.base.inference.parameter.ParameterMeanLogger' paramList='@ratesList' pointers="@rates.pointers" dpVal="@dpValuable.rate" tree="@rootHeight"/>
             <log idref="mvnmean.prior"/>
             <log idref="mvnprecision.prior"/>
             <log idref="lnorm.mean"/>

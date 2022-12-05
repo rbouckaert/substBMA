@@ -1,9 +1,11 @@
 package beast.evolution.tree;
 
-import beast.core.BEASTObject;
-import beast.core.Input;
-import beast.core.Loggable;
-import beast.core.parameter.RealParameter;
+import beast.base.core.BEASTObject;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.parameter.RealParameter;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -51,7 +53,7 @@ public class LogIntervals extends BEASTObject implements Loggable{
      * @param nSample chain sample number
      * @param out     log stream
      */
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
         int count = tree.getInternalNodeCount();
         List<Node> internalNodes = tree.getInternalNodes();
         SortedSet<Double> set = new TreeSet();

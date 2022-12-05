@@ -1,7 +1,7 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.parameter.RealParameter;
+import beast.base.core.Description;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.substitutionmodel.NtdBMA;
 
 /**

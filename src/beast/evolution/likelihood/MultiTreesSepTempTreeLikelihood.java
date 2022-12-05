@@ -1,8 +1,8 @@
 package beast.evolution.likelihood;
 
-import beast.core.Input;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.tree.Tree;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;

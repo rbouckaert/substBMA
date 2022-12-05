@@ -1,7 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Function;
-import beast.core.Description;
+import beast.base.core.Function;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.core.Description;
 
 /**
  * @author Chieh-Hsi Wu

@@ -1,9 +1,10 @@
 package beast;
 
-import org.apache.commons.math.distribution.Distribution;
+
 import junit.framework.TestCase;
 import beast.math.distributions.IntegerUniformDistribution;
 import org.apache.commons.math.distribution.ContinuousDistribution;
+import org.apache.commons.math.distribution.Distribution;
 
 /**
  * @author Chieh-Hsi Wu

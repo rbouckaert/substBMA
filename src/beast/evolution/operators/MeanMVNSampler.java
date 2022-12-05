@@ -1,10 +1,10 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.parameter.RealParameter;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
 import beast.math.distributions.MultivariateNormal;
 import beast.math.matrixAlgebra1.Matrix;
 
@@ -139,7 +139,7 @@ public class MeanMVNSampler extends Operator{
 
         double[] draw = MultivariateNormal.nextMultivariateNormalVariance(newMean,newCovariance);
 
-        mean = meanInput.get(this);
+        mean = meanInput.get();
         for(int i = 0; i < draw.length; i++){
             mean.setValue(i,draw[i]);
         }

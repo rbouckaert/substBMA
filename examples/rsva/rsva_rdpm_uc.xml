@@ -3,7 +3,7 @@
 <!--Source: Wu, Suchard and Drummond. Bayesian selection of nucleotide substitution models and their site assignments. Molecular Biology and Evolution.-->
 
 <beast version='2.0'
-       namespace='beast.core:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.branchratemodel:beast.evolution.likelihood:beast.core.parameter:beast.math.distributions:beast.evolution.operators.util'>
+       namespace='beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.branchratemodel:beast.base.evolution.likelihood:beast.base.inference.parameter:beast.base.inference.distribution:beast.base.evolution.operator:beast.base.inference.operator.util'>
 
     <data dataType="nucleotide" id="rsva" name="taxa">
         <sequence id="seq_NYCH09@93" taxon="NYCH09@93" totalcount="4" value="ACCTCACCCAGAATCCCCAGCTTGGAATCAGCTTCTCCAATCTGTCCGAAACTACATCACAAACCACCACCATACTAGCCTCAACAACACCAAGTATCGAATCAACCCTGCTATCAACAACAGTCAAGACCAAAAACACAACAACAACCCAATTACAACCCAGCAAGCCCACCACAAAACAACGCCACAACAAACCACCAAACAAACCCAACAATGATTTTCACTTTGAAGTGTTCAACTTTGTTCCTTGCAGTATATGCAGCAACAATCCAACCTGCTGGGCTATCTGCAAAAGAATACCAAACAAAAAACCTGGAAAGAAAACCACAACCAAGCCCACAAAAAGACCAACCACCAGGACAACCAAAAAAGATCTCAAACCTCAAACCACAAAACCAAAGGGAACACTCACCACCAAGCCTACAGAAAAGTCAACCATCAACGCCACCAAAACAAACATCAGAACTACAATGCCCATCAACAATACCACAGGAAATCCAGAAAACACAAGTCAAAAGGAAACCCTCCACTCAACCTCCTCTGAGGGCAATCCAAGCCCTCCACATGTCTACACAACATCCGAGTACCCATCACAACCTCCATCTCCGTTCAACACAACAGCCTAGTAG"/>
@@ -100,8 +100,8 @@
 
 
 
-    <tree spec='beast.util.ClusterTree' id='tree' clusterType='upgma'>
-		<trait spec='beast.evolution.tree.TraitSet' traitname='date-forward' units='year'
+    <tree spec='beast.base.evolution.tree.ClusterTree' id='tree' clusterType='upgma'>
+		<trait spec='beast.base.evolution.tree.TraitSet' traitname='date-forward' units='year'
 			value='
                 NYCH09@93=1993.0,
                 SE05@91=1991.0,
@@ -138,16 +138,16 @@
                 WV6973@82=1982.0,
                 AUSA2@61=1961.0,
                 USALong@56=1956.0'>
-                <taxa spec='beast.evolution.alignment.TaxonSet'  alignment='@rsva'/>
+                <taxa spec='beast.base.evolution.alignment.TaxonSet'  alignment='@rsva'/>
         </trait>
         <input name='taxa' idref='rsva'/>
     </tree>
 
 
 
-    <branchRateModel id="branchRates" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" normalize="true">
+    <branchRateModel id="branchRates" spec="beast.base.evolution.branchratemodel.UCRelaxedClockModel" normalize="true">
         <tree idref="tree"/>
-        <distr  spec="beast.math.distributions.LogNormalDistributionModel" meanInRealSpace="true" offset="0.0">
+        <distr  spec="beast.base.inference.distribution.LogNormalDistributionModel" meanInRealSpace="true" offset="0.0">
             <M spec="RealParameter" id="ucld.mean" value="1.0"/>
             <S spec="RealParameter" id="ucld.stdev" value="1.0" lower="0.0" upper="1000.0"/>
         </distr>
@@ -239,7 +239,7 @@
         <input name="baseDistr" spec="beast.math.distributions.CategoricalDistribution"  offset="1">
             <input spec="RealParameter" name="probs" id="categorical.prob" value="0.2 0.2 0.2 0.2 0.2" lower="0.0"/>
         </input>
-        <input name="baseDistr" spec="beast.math.distributions.DirichletDistribution">
+        <input name="baseDistr" spec="beast.base.inference.distribution.DirichletDistribution">
             <input name="alpha" id="dirichlet.prob" spec="RealParameter" value="0.25 0.25 0.25 0.25" lower="0" upper="Infinity"/>
             <input name="scale" id="dirichlet.scale" spec="RealParameter" value="40.0" lower="0" upper="Infinity"/>
         </input>
@@ -316,11 +316,11 @@
             <distribution spec="BayesianSkyline" id='skyline'>
                 <popSizes idref="skyline.popSize"/>
                 <groupSizes idref='skyline.groupSize'/>
-                <treeIntervals spec='TreeIntervals' id='TreeIntervals'>
+                <treeIntervals spec="beast.base.evolution.tree.TreeIntervals" id="beast.base.evolution.tree.TreeIntervals">
                     <tree idref="tree"/>
                 </treeIntervals>
             </distribution>
-             <distribution id='eml1' spec="beast.math.distributions.MarkovChainDistribution"
+             <distribution id='eml1' spec="beast.base.inference.distribution.MarkovChainDistribution"
 				jeffreys="true"
 				parameter="@skyline.popSize"/>
             <distribution id="dpp.subst" spec="beast.math.distributions.ParameterListsPrior" applyToList="true">
@@ -333,16 +333,16 @@
                 <distr idref="dp"/>
                 <xList idref="ratesList"/>
             </distribution>
-            <distribution id="hMean.prior" spec="beast.math.distributions.Prior">
-                 <input name="distr" spec="beast.math.distributions.Normal" mean="-7.685701" sigma="1.267327"/>
+            <distribution id="hMean.prior" spec="beast.base.inference.distribution.Prior">
+                 <input name="distr" spec="beast.base.inference.distribution.Normal" mean="-7.685701" sigma="1.267327"/>
                  <x idref="lnorm.mean"/>
              </distribution>
-            <distribution id="hCV.prior" spec="beast.math.distributions.Prior">
-                 <input name="distr" spec="beast.math.distributions.Gamma" alpha="1.0" beta="10"/>
+            <distribution id="hCV.prior" spec="beast.base.inference.distribution.Prior">
+                 <input name="distr" spec="beast.base.inference.distribution.Gamma" alpha="1.0" beta="10"/>
                  <x idref="lnorm.prec"/>
              </distribution>             
-            <distribution id="s.prior"  spec="beast.math.distributions.Prior">
-                <input name="distr" spec="beast.math.distributions.Gamma" alpha="1.0" beta="0.333333"/>
+            <distribution id="s.prior"  spec="beast.base.inference.distribution.Prior">
+                <input name="distr" spec="beast.base.inference.distribution.Gamma" alpha="1.0" beta="0.333333"/>
                 <x idref="ucld.stdev"/>
             </distribution>
         </distribution>
@@ -427,7 +427,7 @@
             <log idref="dpValuable.subst"/>
             <log idref="dpValuable.rate"/>
             <log idref="treeLik.count"/>
-            <log spec='beast.evolution.tree.TreeHeightLogger' tree='@tree'/>
+            <log spec='beast.base.evolution.tree.TreeHeightLogger' tree='@tree'/>
         </logger>
 
 
@@ -442,7 +442,7 @@
 	        <log idref="treeLik.count"/>
             <log idref="skyline.popSize"/>
             <log idref="skyline.groupSize"/>
-            <log spec='beast.evolution.tree.TreeHeightLogger' tree='@tree'/>
+            <log spec='beast.base.evolution.tree.TreeHeightLogger' tree='@tree'/>
             <log idref="ucld.stdev"/>
             <log idref="ucld.mean"/>
             <log idref="lnorm.mean"/>

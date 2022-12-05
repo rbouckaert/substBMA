@@ -1,11 +1,11 @@
 package beast.evolution.operators;
 
-import beast.core.Operator;
-import beast.core.Input;
-import beast.core.Description;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
-import beast.util.Randomizer;
+import beast.base.inference.Operator;
+import beast.base.core.Input;
+import beast.base.core.Description;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -60,7 +60,7 @@ public class IntegerRandomWalkOperator extends Operator {
         logq = 0.0;
 
         if(intparameterInput.get() != null){
-            IntegerParameter parameter = intparameterInput.get(this);
+            IntegerParameter parameter = intparameterInput.get();
 
 
             // a random dimension to perturb
@@ -69,7 +69,7 @@ public class IntegerRandomWalkOperator extends Operator {
             int newValue = (int)calculateNewValue(parameter.getValue(index),parameter.getUpper(),parameter.getLower());
             parameter.setValue(index,newValue);
         }else{
-            RealParameter parameter = parameterInput.get(this);
+            RealParameter parameter = parameterInput.get();
 
 
             // a random dimension to perturb

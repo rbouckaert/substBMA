@@ -1,11 +1,13 @@
 package beast.evolution.tree.coalescent;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.tree.Node;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.tree.Node;
 import beast.evolution.tree.Scaler;
-import beast.evolution.tree.Tree;
-import beast.util.HeapSort;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.tree.TreeIntervals;
+import beast.base.inference.util.InputUtil;
+import beast.base.util.HeapSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -247,7 +249,7 @@ public class ScaledTreeIntervals extends TreeIntervals {
 
 
     protected boolean requiresRecalculation() {
-        if(treeInput.isDirty()){
+        if(InputUtil.isDirty(treeInput)){
             super.requiresRecalculation();
 
         }

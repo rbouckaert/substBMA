@@ -1,6 +1,7 @@
 package beast.core.parameter;
 
-import beast.core.Input;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.tree.Scaler;
 
 /**

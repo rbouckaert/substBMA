@@ -1,10 +1,12 @@
 package beast.math.distributions;
 
-import beast.core.Function;
+import beast.base.core.Function;
 import org.apache.commons.math.distribution.ContinuousDistribution;
 import beast.core.parameter.*;
-import beast.core.Input;
-import beast.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.core.Description;
 
 /**
  * @author Chieh-Hsi Wu

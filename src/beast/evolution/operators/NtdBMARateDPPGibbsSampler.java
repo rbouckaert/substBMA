@@ -1,15 +1,16 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Loggable;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.Operator;
 import beast.core.parameter.*;
 import beast.evolution.likelihood.DPTreeLikelihood;
 import beast.evolution.likelihood.TempTreeLikelihood;
 import beast.math.distributions.CompoundDirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -382,10 +383,10 @@ public class NtdBMARateDPPGibbsSampler  extends Operator implements Loggable {
                 //System.out.println("before sampler: "+ratesList.getID()+" "+ ratesList.getDimension());
                 if(proposedIndex >= counter && zeroCount > -1){//Singleton takes new value
 
-                    paramList = parameterListInput.get(this);
-                    modelList = modelListInput.get(this);
-                    freqsList = freqsListInput.get(this);
-                    ratesList = ratesListInput.get(this);
+                    paramList = parameterListInput.get();
+                    modelList = modelListInput.get();
+                    freqsList = freqsListInput.get();
+                    ratesList = ratesListInput.get();
 
                     int paramListIndex = paramPointers.indexInList(index,paramList);
                     //System.err.println("paramListIndex: "+paramListIndex);
@@ -404,10 +405,10 @@ public class NtdBMARateDPPGibbsSampler  extends Operator implements Loggable {
                 }else{
                     //Singleton takes existing value or
                     //non-singleton takes new or existing value
-                    paramPointers = parameterPointersInput.get(this);
-                    freqsPointers = freqPointersInput.get(this);
-                    modelPointers = modelPointersInput.get(this);
-                    ratesPointers = ratesPointersInput.get(this);
+                    paramPointers = parameterPointersInput.get();
+                    freqsPointers = freqPointersInput.get();
+                    modelPointers = modelPointersInput.get();
+                    ratesPointers = ratesPointersInput.get();
                     paramPointers.point(index, paramProposal);
                     modelPointers.point(index, modelProposal);
                     freqsPointers.point(index, freqsProposal);
@@ -416,10 +417,10 @@ public class NtdBMARateDPPGibbsSampler  extends Operator implements Loggable {
                     //Non singleton takes new value
                     if(proposedIndex >= counter){
                         //addClusterCount++;
-                        paramList = parameterListInput.get(this);
-                        modelList = modelListInput.get(this);
-                        freqsList = freqsListInput.get(this);
-                        ratesList = ratesListInput.get(this);
+                        paramList = parameterListInput.get();
+                        modelList = modelListInput.get();
+                        freqsList = freqsListInput.get();
+                        ratesList = ratesListInput.get();
                         paramList.addParameter(paramProposal);
                         modelList.addParameter(modelProposal);
                         freqsList.addParameter(freqsProposal);
@@ -434,10 +435,10 @@ public class NtdBMARateDPPGibbsSampler  extends Operator implements Loggable {
                 //If any cluster has no member then it is removed.
                 if(zeroCount > -1){
 
-                    paramList = parameterListInput.get(this);
-                    modelList = modelListInput.get(this);
-                    freqsList = freqsListInput.get(this);
-                    ratesList = ratesListInput.get(this);
+                    paramList = parameterListInput.get();
+                    modelList = modelListInput.get();
+                    freqsList = freqsListInput.get();
+                    ratesList = ratesListInput.get();
                     paramList.removeParameter(zeroCount);
                     modelList.removeParameter(zeroCount);
                     freqsList.removeParameter(zeroCount);
@@ -502,7 +503,7 @@ public class NtdBMARateDPPGibbsSampler  extends Operator implements Loggable {
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
     	out.print((double)addClusterCount/(double)nSample+ "\t");
 	}
 

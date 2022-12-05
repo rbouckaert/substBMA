@@ -1,12 +1,14 @@
 package beast.evolution.operators;
 
-import beast.core.Operator;
-import beast.core.Input;
-import beast.core.Description;
+
+import beast.base.inference.Operator;
+import beast.base.core.Input;
+import beast.base.core.Description;
 import beast.core.parameter.*;
 import beast.math.distributions.DirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -64,8 +66,8 @@ public class DirichletProcessPriorSampler extends Operator {
 
     public double proposal(){
         //Get the pointer and the list of unique values
-        DPPointer pointers = pointersInput.get(this);
-        ParameterList paramList = xListInput.get(this);
+        DPPointer pointers = pointersInput.get();
+        ParameterList paramList = xListInput.get();
 
         //Randomly pick an index to update, gets it's current value and its position in the parameter list
         int dimPointer = pointers.getDimension();

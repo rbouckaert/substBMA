@@ -1,8 +1,10 @@
 package beast.core.parameter;
 
-import beast.core.Description;
-import beast.core.util.Log;
-import beast.math.distributions.ParametricDistribution;
+import beast.base.core.Description;
+import beast.base.core.Log;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.ContinuousDistribution;
 import org.apache.commons.math.distribution.IntegerDistribution;
@@ -151,4 +153,8 @@ public class QuietRealParameter extends RealParameter{
         return samples;
     }
 
+    @Override
+    protected void store() {
+    	super.store();
+    }
 }

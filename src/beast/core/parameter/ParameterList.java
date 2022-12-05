@@ -1,19 +1,25 @@
 package beast.core.parameter;
 
-import beast.core.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.io.PrintStream;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.w3c.dom.Node;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.StateNode;
+import beast.base.inference.parameter.RealParameter;
+import beast.core.PluginList;
+import beast.core.Recycle;
 
 /**
  * @author Chieh-Hsi Wu
  */
 @Description("This class stores a list of parameters and the size of the list can change.")
-public class ParameterList extends StateNode implements PluginList, Recycle {
+public class ParameterList extends StateNode implements PluginList, Recycle{
     public Input<List<QuietRealParameter>> parametersInput =
                 new Input<List<QuietRealParameter>>(
                         "parameter",
@@ -476,7 +482,7 @@ public class ParameterList extends StateNode implements PluginList, Recycle {
 
     /** Loggable implementation **/
     @Override
-    public void log(int nSample, PrintStream out) {
+    public void log(long nSample, PrintStream out) {
         ParameterList paramList = (ParameterList) getCurrent();
         int dim = paramList.getDimension();
         if(dim == 0){

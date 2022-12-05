@@ -1,8 +1,10 @@
 package beast.core.util;
 
-import beast.core.*;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.CalculationNode;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.DPPointer;
 
 import java.io.PrintStream;
 
@@ -27,7 +29,7 @@ public class PrintListIDNumber extends CalculationNode implements Loggable {
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
         int dim = paramList.getDimension();
         for(int i = 0; i < dim; i++){
     	    out.print(paramList.getParameter(i).getIDNumber() + "\t");

@@ -1,9 +1,9 @@
 package beast.evolution.operators;
 
-import beast.core.Input;
-import beast.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Description;
+import beast.base.util.Randomizer;
 import beast.core.parameter.ParameterList;
-import beast.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -18,7 +18,7 @@ public class PLNetworkIntRandomWalkOperator extends NetworkIntRandomWalkOperator
     }
 
     public double proposal(){
-        ParameterList paramList = parameterListInput.get(this);
+        ParameterList paramList = parameterListInput.get();
         int iParam = Randomizer.nextInt(paramList.getDimension());
         int currVertex = (int)paramList.getValue(iParam,0) - offset ;
         int nextVertex = neighbours[currVertex][Randomizer.nextInt(neighbours[currVertex].length)];

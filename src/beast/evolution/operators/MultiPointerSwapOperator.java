@@ -1,12 +1,12 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.DPValuable;
 import beast.math.util.MathUtil;
-import beast.util.Randomizer;
+import beast.base.util.Randomizer;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

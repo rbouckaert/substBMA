@@ -1,8 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.BEASTObject;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.base.core.BEASTObject;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 
 import java.util.ArrayList;
 import java.util.List;

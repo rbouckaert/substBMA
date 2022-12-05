@@ -1,7 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.base.core.Input;
+import beast.base.inference.distribution.Normal;
+import beast.base.inference.parameter.RealParameter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,10 +20,10 @@ public class NormalDistribution extends Normal {
         if (meanInput.get() == null) {
             fMean = 0;
         } else {
-            fMean = meanInput.get().getValue();
+            fMean = meanInput.get().getArrayValue();
         }
         if (sigmaInput.get() != null) {
-            fSigma = sigmaInput.get().getValue();
+            fSigma = sigmaInput.get().getArrayValue();
         }else if(precisionInput.get() != null){
             fSigma = 1.0/precisionInput.get().getValue();
 
@@ -30,7 +31,7 @@ public class NormalDistribution extends Normal {
             fSigma = 1;
         }
 
-        dist.setMean(fMean);
-        dist.setStandardDeviation(fSigma);
+        ((org.apache.commons.math.distribution.NormalDistribution)getDistribution()).setMean(fMean);
+        ((org.apache.commons.math.distribution.NormalDistribution)getDistribution()).setStandardDeviation(fSigma);
     }
 }

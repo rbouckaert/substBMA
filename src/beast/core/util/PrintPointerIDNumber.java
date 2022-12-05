@@ -1,9 +1,8 @@
 package beast.core.util;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.DPPointer;
-import beast.core.parameter.ParameterList;
-import beast.core.Input;
+import beast.base.core.Input;
 
 import java.io.PrintStream;
 
@@ -28,7 +27,7 @@ public class PrintPointerIDNumber extends PrintListIDNumber{
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
         int dim = pointers.getDimension();
         for(int i = 0; i < dim; i++){
     	    out.print(pointers.getParameter(i).getIDNumber() + "\t");

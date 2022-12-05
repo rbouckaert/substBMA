@@ -1,11 +1,12 @@
 package beast.evolution.speciation;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.evolution.tree.Node;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.speciation.YuleModel;
+import beast.base.evolution.tree.Node;
 import beast.evolution.tree.Scaler;
-import beast.evolution.tree.Tree;
+import beast.base.evolution.tree.Tree;
 
 /**
  * @author Chieh-Hsi

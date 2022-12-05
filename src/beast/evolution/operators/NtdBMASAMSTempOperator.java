@@ -1,8 +1,8 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.DPValuable;
 import beast.core.parameter.ParameterList;
@@ -13,8 +13,8 @@ import beast.evolution.likelihood.SlowDPSepTreeLikelihood;
 import beast.evolution.likelihood.TempWVTreeLikelihood;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.math.distributions.CompoundDirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.util.Randomizer;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;

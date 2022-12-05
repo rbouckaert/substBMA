@@ -1,12 +1,11 @@
 package beast.evolution.datatype;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.util.HeapSort;
 
-import java.util.ArrayList;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.datatype.DataType;
+
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author Chieh-Hsi Wu

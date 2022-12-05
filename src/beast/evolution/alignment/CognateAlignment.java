@@ -1,8 +1,10 @@
 package beast.evolution.alignment;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.datatype.DataType;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.TaxonSet;
+import beast.base.evolution.datatype.DataType;
 import beast.evolution.datatype.LanguageIntegerData;
 
 import java.util.ArrayList;

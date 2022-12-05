@@ -1,14 +1,14 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Operator;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.inference.Operator;
+import beast.base.core.Input;
 import beast.core.parameter.*;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.math.distributions.DirichletProcess;
-import beast.math.distributions.ParametricDistribution;
+import beast.base.inference.distribution.ParametricDistribution;
 import beast.evolution.likelihood.*;
-import beast.util.Randomizer;
+import beast.base.util.Randomizer;
 
 import java.util.HashMap;
 

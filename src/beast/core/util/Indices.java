@@ -1,6 +1,9 @@
 package beast.core.util;
 
-import beast.core.*;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.CalculationNode;
 import beast.evolution.substitutionmodel.DPNtdBMA;
 
 import java.io.PrintStream;
@@ -28,7 +31,7 @@ public class Indices extends CalculationNode implements Loggable {
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
         int[] indices = dpNtdBMA.getPointerIndices();
         for(int index:indices){
     	    out.print(index + "\t");

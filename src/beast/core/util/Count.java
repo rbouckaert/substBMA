@@ -1,8 +1,15 @@
 package beast.core.util;
 
-import beast.core.*;
 
 import java.io.PrintStream;
+
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.CalculationNode;
+import beast.core.PluginList;
 
 /**
  * @author Chieh-Hsi Wu
@@ -34,7 +41,7 @@ public class Count extends CalculationNode implements Loggable, Function{
     }
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
     	out.print(list.getDimension() + "\t");
 	}
 

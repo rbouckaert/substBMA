@@ -1,8 +1,8 @@
 package beast;
 
-import beast.core.parameter.RealParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.math.distributions.MultivariateNormal;
-import beast.math.distributions.Normal;
+import beast.base.inference.distribution.Normal;
 import junit.framework.TestCase;
 
 /**

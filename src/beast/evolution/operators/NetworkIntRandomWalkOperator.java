@@ -1,11 +1,13 @@
 package beast.evolution.operators;
 
-import beast.core.*;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.operators.util.Vertex;
 import beast.evolution.substitutionmodel.NtdBMA;
-import beast.util.Randomizer;
+import beast.base.util.Randomizer;
 
 import java.util.ArrayList;
 
@@ -88,7 +90,7 @@ public class NetworkIntRandomWalkOperator extends Operator {
 
     public double proposal(){
 
-        RealParameter parameter = parameterInput.get(this);
+        RealParameter parameter = parameterInput.get();
         int currVertex = (int)(double)parameter.getValue() - offset;
         int nextVertex = neighbours[currVertex][Randomizer.nextInt(neighbours[currVertex].length)];
         //System.out.println("currVertex: "+currVertex+ ", nextVertex: "+nextVertex);

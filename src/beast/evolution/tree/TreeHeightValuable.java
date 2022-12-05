@@ -1,6 +1,10 @@
 package beast.evolution.tree;
 
-import beast.core.*;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.CalculationNode;
 
 /**
  * @author Chieh-Hsi Wu

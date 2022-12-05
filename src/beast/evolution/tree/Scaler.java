@@ -1,7 +1,7 @@
 package beast.evolution.tree;
 
-import beast.core.CalculationNode;
-import beast.core.Description;
+import beast.base.inference.CalculationNode;
+import beast.base.core.Description;
 
 /**
  * @author Chieh-Hsi Wu

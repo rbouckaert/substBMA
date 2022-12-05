@@ -1,9 +1,9 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.util.Randomizer;
 import beast.core.parameter.ParameterList;
-import beast.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -34,7 +34,7 @@ public class PLIntegerRandomWalkOperator extends IntegerRandomWalkOperator{
     public double proposal() {
         logq =0.0;
 
-        ParameterList paramList = parameterListInput.get(this);
+        ParameterList paramList = parameterListInput.get();
 
 
         // a random parameter to perturb

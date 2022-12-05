@@ -1,10 +1,10 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.parameter.RealParameter;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
 import beast.math.distributions.DirichletDistribution;
 
 /**
@@ -59,7 +59,7 @@ public class CategoricalPDirichletPriorSampler extends Operator {
             DirichletDistribution dirichlet = new DirichletDistribution(newCounts);
             // offset has been handled above, so not use sampler in QuietRealParameter#getSample
             Double[][] draw = dirichlet.sample(1);
-            RealParameter probs = categoricalProbsInput.get(this);
+            RealParameter probs = categoricalProbsInput.get();
             for(int i = 0 ; i < draw[0].length; i++){
                 probs.setValue(i,draw[0][i]);
             }

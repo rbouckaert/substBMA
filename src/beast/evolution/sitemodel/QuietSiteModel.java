@@ -1,10 +1,11 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
-import beast.core.StateNode;
+import beast.base.core.Description;
+import beast.base.inference.StateNode;
 import beast.core.parameter.QuietRealParameter;
-import beast.core.parameter.RealParameter;
-import beast.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
 
 import java.util.ArrayList;

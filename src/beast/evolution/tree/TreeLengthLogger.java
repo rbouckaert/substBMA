@@ -1,9 +1,10 @@
 package beast.evolution.tree;
 
-import beast.core.CalculationNode;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.inference.CalculationNode;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.evolution.tree.Tree;
 
 import java.io.PrintStream;
 
@@ -30,7 +31,7 @@ public class TreeLengthLogger extends CalculationNode implements Loggable{
         }
     }
 
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
         double treeLength = calculateTreeLength();
 
             out.print(treeLength+"\t");

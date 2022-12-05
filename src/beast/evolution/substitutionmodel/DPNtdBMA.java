@@ -1,8 +1,18 @@
 package beast.evolution.substitutionmodel;
 
-import beast.core.*;
-import beast.core.parameter.*;
-import beast.evolution.sitemodel.SiteModel;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.inference.CalculationNode;
+import beast.core.MCMCNodeFactory;
+import beast.core.PluginList;
+import beast.core.Recycle;
+import beast.core.parameter.ChangeType;
+import beast.core.parameter.DPPointer;
+import beast.core.parameter.ParameterList;
+import beast.core.parameter.QuietRealParameter;
+import beast.core.parameter.RealParameterWrapper;
 
 import java.util.ArrayList;
 

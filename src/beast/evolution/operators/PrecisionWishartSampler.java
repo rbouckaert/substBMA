@@ -1,10 +1,11 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.parameter.RealParameter;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
 import beast.math.distributions.Wishart;
 import beast.math.matrixAlgebra1.Matrix;
 
@@ -72,7 +73,7 @@ public class PrecisionWishartSampler extends Operator {
         newScale = (new Matrix(newScale)).inverse().toComponents();
 
         double[][] draw = Wishart.nextWishart(df+obsCount,newScale);
-        RealParameter precision = precisionInput.get(this);
+        RealParameter precision = precisionInput.get();
         int k = 0;
         for(int i = 0; i < dim; i ++){
             for(int j = 0; j < dim; j ++){

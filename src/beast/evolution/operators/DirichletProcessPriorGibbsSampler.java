@@ -1,13 +1,14 @@
 package beast.evolution.operators;
 
-import beast.core.Operator;
-import beast.core.Input;
-import beast.core.Distribution;
-import beast.core.Description;
+import beast.base.inference.Operator;
+import beast.base.core.Input;
+import beast.base.inference.Distribution;
+import beast.base.core.Description;
 import beast.core.parameter.*;
 import beast.math.distributions.DirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 import org.apache.commons.math.MathException;
 
 
@@ -66,7 +67,7 @@ public class DirichletProcessPriorGibbsSampler extends Operator {
         //System.err.println("DPPGBS");
 
         //Get the pointer and the list of unique values
-        DPPointer pointers = pointersInput.get(this);
+        DPPointer pointers = pointersInput.get();
         ParameterList paramList = xListInput.get();
 
         //Randomly pick an index to update, gets it's current value and its position in the parameter list
@@ -186,7 +187,7 @@ public class DirichletProcessPriorGibbsSampler extends Operator {
                 }else{
                 //take up a new value
                     pointers.point(index, preliminaryProposals[proposedIndex-counter]);
-                    paramList = xListInput.get(this);
+                    paramList = xListInput.get();
                     paramList.addParameter(preliminaryProposals[proposedIndex-counter]);
                     //System.err.println("add cluster");
                 }
@@ -201,7 +202,7 @@ public class DirichletProcessPriorGibbsSampler extends Operator {
 
             //If any cluster has no member then it is removed.
             if(zeroCount > -1){
-                paramList = xListInput.get(this);
+                paramList = xListInput.get();
                 paramList.removeParameter(zeroCount);
                 //if(this.counter>3240)
                   //System.err.println("Removing cluster");

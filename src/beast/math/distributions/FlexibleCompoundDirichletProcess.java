@@ -1,9 +1,10 @@
 package beast.math.distributions;
 
-import beast.core.Distribution;
-import beast.core.Input;
+import beast.base.inference.Distribution;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.core.Input;
 import beast.core.parameter.DPValuable;
-import beast.core.parameter.RealParameter;
+import beast.base.inference.parameter.RealParameter;
 import org.apache.commons.math.distribution.ContinuousDistribution;
 
 import java.util.ArrayList;

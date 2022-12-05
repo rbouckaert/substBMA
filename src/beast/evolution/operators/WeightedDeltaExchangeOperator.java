@@ -1,10 +1,11 @@
 package beast.evolution.operators;
 
-import beast.core.Input;
-import beast.core.Operator;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
-import beast.util.Randomizer;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.inference.operator.CompoundParameterHelper;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 import java.util.ArrayList;
 import java.util.List;

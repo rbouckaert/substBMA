@@ -1,13 +1,12 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.DPValuable;
-import beast.core.parameter.ParameterList;
-import beast.evolution.alignment.Alignment;
-import beast.util.Randomizer;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -55,7 +54,7 @@ public class RatePointersSwapOperator extends Operator {
             return Double.NEGATIVE_INFINITY;
         }
 
-        DPPointer ratePointers = ratePointerInput.get(this);
+        DPPointer ratePointers = ratePointerInput.get();
         ratePointers.swapPointers(site1, site2);
 
         return 0.0;

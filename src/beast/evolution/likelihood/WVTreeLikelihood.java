@@ -1,12 +1,15 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.sitemodel.SiteModel;
-import beast.evolution.tree.Tree;
-import beast.evolution.alignment.AscertainedAlignment;
-import beast.evolution.branchratemodel.StrictClockModel;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.alignment.AscertainedAlignment;
+import beast.base.evolution.branchratemodel.StrictClockModel;
+import beast.base.evolution.likelihood.BeerLikelihoodCore;
+import beast.base.evolution.likelihood.BeerLikelihoodCore4;
+import beast.base.evolution.likelihood.TreeLikelihood;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
 
 import java.util.Arrays;
@@ -102,6 +105,11 @@ public class WVTreeLikelihood extends TreeLikelihood{
             throw new RuntimeException("Pattern counts differ!");
         }
     }
+
+	double m_fScale = 1.01;
+	int m_nScale = 0;
+	int X = 100;
+
 
     @Override
     public double calculateLogP() {

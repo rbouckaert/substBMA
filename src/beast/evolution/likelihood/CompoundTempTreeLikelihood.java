@@ -1,13 +1,14 @@
 package beast.evolution.likelihood;
 
-import beast.app.BeastMCMC;
-import beast.core.Description;
-import beast.core.Distribution;
-import beast.core.Input;
-import beast.core.State;
+import beastfx.app.beast.BeastMCMC;
+import beast.base.core.Description;
+import beast.base.inference.Distribution;
+import beast.base.core.Input;
+import beast.base.core.ProgramStatus;
+import beast.base.inference.State;
 import beast.core.parameter.QuietRealParameter;
-import beast.core.parameter.RealParameter;
-import beast.core.util.CompoundDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.CompoundDistribution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class CompoundTempTreeLikelihood extends CompoundDistribution {
     private List<TempTreeLikelihood> tempTreeLiks;
     public void initAndValidate() {
         tempTreeLiks = tempTreeLiksInput.get();
-        useThreads = useThreadsInput.get() && (BeastMCMC.m_nThreads > 1);
+        useThreads = useThreadsInput.get() && (ProgramStatus.m_nThreads > 1);
 
 
     }
@@ -88,21 +89,21 @@ public class CompoundTempTreeLikelihood extends CompoundDistribution {
                 }
             }*/
             //m_nCountDown = new CountDownLatch(nrOfDirtyDistrs);
-            m_nCountDown = new CountDownLatch(BeastMCMC.m_nThreads);
+            m_nCountDown = new CountDownLatch(ProgramStatus.m_nThreads);
             // kick off the threads
-            int batchSize = tempTreeLiks.size()/ BeastMCMC.m_nThreads;
+            int batchSize = tempTreeLiks.size()/ ProgramStatus.m_nThreads;
             int start, end;
-            for (int i = 0; i < BeastMCMC.m_nThreads; i++) {
+            for (int i = 0; i < ProgramStatus.m_nThreads; i++) {
                 //if (dists.isDirtyCalculation()) {    //todo
                 start = batchSize*i;
                 end = batchSize*(i + 1) - 1;
-                if(i == BeastMCMC.m_nThreads -1){
-                    end += tempTreeLiks.size()% BeastMCMC.m_nThreads;
+                if(i == ProgramStatus.m_nThreads -1){
+                    end += tempTreeLiks.size()% ProgramStatus.m_nThreads;
                 }
 
                 CoreRunnable coreRunnable = new CoreRunnable(start, end,site);
 
-                BeastMCMC.g_exec.execute(coreRunnable);
+                ProgramStatus.g_exec.execute(coreRunnable);
                 //}
 
             }
@@ -117,7 +118,7 @@ public class CompoundTempTreeLikelihood extends CompoundDistribution {
             useThreads = false;
             System.err.println("Stop using threads: " + e.getMessage());
             // refresh thread pool
-            BeastMCMC.g_exec = Executors.newFixedThreadPool(BeastMCMC.m_nThreads);
+            ProgramStatus.g_exec = Executors.newFixedThreadPool(ProgramStatus.m_nThreads);
             return calculateLogP(site);
         }
     }

@@ -1,14 +1,17 @@
 package beast.evolution.branchratemodel;
 
 
-import beast.core.Citation;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
-import beast.evolution.tree.Node;
-import beast.evolution.tree.Tree;
-import beast.math.distributions.ParametricDistribution;
+import beast.base.core.Citation;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.util.InputUtil;
+import beast.base.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.distribution.ParametricDistribution;
 import org.apache.commons.math.MathException;
 
 /**
@@ -25,7 +28,7 @@ public class SynchronizableUCRelaxedClock extends BranchRateModel.Base {
     public Input<Tree> treeInput = new Input<Tree>("tree", "the tree this relaxed clock is associated with.", Input.Validate.REQUIRED);
     public Input<Boolean> normalizeInput = new Input<Boolean>("normalize", "Whether to normalize the average rate (default false).", false);
 
-    RealParameter meanRate;
+    Function meanRate;
 
     @Override
     public void initAndValidate() {
@@ -102,7 +105,7 @@ public class SynchronizableUCRelaxedClock extends BranchRateModel.Base {
 
         int rateCategory = categories.getValue(nodeNumber);
 
-        return rates[rateCategory] * scaleFactor * meanRate.getValue();
+        return rates[rateCategory] * scaleFactor * meanRate.getArrayValue();
     }
 
     // compute scale factor
@@ -182,7 +185,7 @@ public class SynchronizableUCRelaxedClock extends BranchRateModel.Base {
             //recompute = true;
             return true;
         }
-        if (meanRate.somethingIsDirty()) {
+        if (InputUtil.isDirty(meanRateInput)) {
             return true;
         }
 

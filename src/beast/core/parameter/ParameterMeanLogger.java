@@ -1,10 +1,15 @@
 package beast.core.parameter;
 
-import beast.core.*;
-import beast.evolution.tree.TreeHeightValuable;
+
 
 import java.io.PrintStream;
 import java.util.logging.StreamHandler;
+
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
 
 /**
  * @author Chieh-Hsi Wu
@@ -12,7 +17,7 @@ import java.util.logging.StreamHandler;
 @Description("Use this class to print the mean value of a ParameterList.")
 public class ParameterMeanLogger extends BEASTObject implements Loggable {
     //ParameterList
-    public Input<ParameterList> paramListInput = new Input<ParameterList>(
+    public Input<ParameterList> paramListInput = new Input<>(
             "paramList",
             "A list of unique parameter values",
             Input.Validate.REQUIRED
@@ -65,7 +70,8 @@ public class ParameterMeanLogger extends BEASTObject implements Loggable {
     }
 
 
-    public void log(int nSample, PrintStream out){
+    @Override
+    public void log(long nSample, PrintStream out){
 
         double mean = 0.0;
         int[] clusterCounts = dpVal.getClusterCounts();

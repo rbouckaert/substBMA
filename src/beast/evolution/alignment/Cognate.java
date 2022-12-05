@@ -1,9 +1,9 @@
 package beast.evolution.alignment;
 
-import beast.core.BEASTObject;
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.datatype.DataType;
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.datatype.DataType;
 import beast.evolution.datatype.LanguageIntegerData;
 
 /**

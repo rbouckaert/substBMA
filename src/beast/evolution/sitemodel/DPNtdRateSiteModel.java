@@ -1,9 +1,10 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.MCMCNodeFactory;
 import beast.core.parameter.*;
-import beast.core.Input;
+import beast.base.core.Input;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.DPNtdBMA;
 
 import java.util.ArrayList;

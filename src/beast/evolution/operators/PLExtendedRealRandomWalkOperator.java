@@ -1,9 +1,9 @@
 package beast.evolution.operators;
 
-import beast.core.Input;
-import beast.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Description;
+import beast.base.util.Randomizer;
 import beast.core.parameter.ParameterList;
-import beast.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -40,7 +40,7 @@ public class PLExtendedRealRandomWalkOperator extends ExtendedRealRandomWalkOper
     @Override
     public double proposal() {
         //System.err.println("PLERRWO");
-        parameterList = parameterListInput.get(this);
+        parameterList = parameterListInput.get();
         int iParam = Randomizer.nextInt(parameterList.getDimension());
         int iValue = Randomizer.nextInt(parameterList.getParameterDimension());
         double value = parameterList.getValue(iParam,iValue);

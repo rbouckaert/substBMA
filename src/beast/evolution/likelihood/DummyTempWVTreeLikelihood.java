@@ -1,8 +1,8 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.parameter.RealParameter;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.core.Description;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.sitemodel.SiteModel;
 
 /**
  * @author Chieh-Hsi Wu

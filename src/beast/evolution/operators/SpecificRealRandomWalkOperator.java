@@ -1,9 +1,10 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.util.Randomizer;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.operator.RealRandomWalkOperator;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 import java.security.PublicKey;
 
@@ -21,15 +22,15 @@ public class SpecificRealRandomWalkOperator extends RealRandomWalkOperator {
     }
     public double proposal() {
 
-        RealParameter param = parameterInput.get(this);
+        RealParameter param = parameterInput.get();
 
 
         double value = param.getValue(index);
         double newValue = value;
-        if (useGaussian) {
-            newValue += Randomizer.nextGaussian() * windowSize;
+        if (useGaussianInput.get()) {
+            newValue += Randomizer.nextGaussian() * windowSizeInput.get();
         } else {
-            newValue += Randomizer.nextDouble() * 2 * windowSize - windowSize;
+            newValue += Randomizer.nextDouble() * 2 * windowSizeInput.get() - windowSizeInput.get();
         }
 
         if (newValue < param.getLower() || newValue > param.getUpper()) {

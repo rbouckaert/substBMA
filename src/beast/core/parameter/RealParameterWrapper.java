@@ -1,7 +1,8 @@
 package beast.core.parameter;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 
 /**
  * @author Chieh-Hsi Wu

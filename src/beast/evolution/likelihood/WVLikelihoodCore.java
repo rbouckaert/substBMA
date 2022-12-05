@@ -1,5 +1,7 @@
 package beast.evolution.likelihood;
 
+import beast.base.evolution.likelihood.BeerLikelihoodCore;
+
 /**
  * @author Chieh-Hsi Wu
  */

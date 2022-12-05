@@ -1,9 +1,12 @@
 package beast.math.distributions;
 
-import beast.core.Function;
-import beast.core.Input;
+
+import beast.base.core.Function;
+import beast.base.core.Input;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.Distribution;
+
+import beast.base.inference.distribution.ParametricDistribution;
 
 import java.util.ArrayList;
 import java.util.HashMap;

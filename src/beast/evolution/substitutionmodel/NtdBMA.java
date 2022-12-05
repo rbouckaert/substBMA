@@ -1,17 +1,17 @@
 package beast.evolution.substitutionmodel;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
 import beast.core.parameter.QuietRealParameter;
-import beast.core.parameter.RealParameter;
-import beast.evolution.datatype.DataType;
-import beast.evolution.datatype.Nucleotide;
-import beast.evolution.substitutionmodel.DefaultEigenSystem;
-import beast.evolution.substitutionmodel.EigenDecomposition;
-import beast.evolution.substitutionmodel.EigenSystem;
-import beast.evolution.substitutionmodel.SubstitutionModel;
-import beast.evolution.tree.Node;
-import beast.math.MachineAccuracy;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.datatype.DataType;
+import beast.base.evolution.datatype.Nucleotide;
+import beast.base.evolution.substitutionmodel.DefaultEigenSystem;
+import beast.base.evolution.substitutionmodel.EigenDecomposition;
+import beast.base.evolution.substitutionmodel.EigenSystem;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.tree.Node;
+import beast.base.util.MachineAccuracy;
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.linalg.Property;
 

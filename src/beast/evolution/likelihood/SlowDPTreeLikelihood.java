@@ -1,15 +1,20 @@
 package beast.evolution.likelihood;
 
-import beast.core.*;
+
+import beast.core.MCMCNodeFactory;
+import beast.core.PluginList;
 import beast.core.parameter.ChangeType;
 import beast.core.parameter.DPValuable;
 import beast.evolution.sitemodel.DPNtdSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.sitemodel.DPSiteModel;
-import beast.evolution.alignment.Alignment;
+import beast.base.core.Description;
+import beast.base.evolution.alignment.Alignment;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
-import beast.evolution.tree.Tree;
-import beast.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.State;
+import beast.base.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.likelihood.TreeLikelihood;
 
 import java.util.ArrayList;
 import java.util.Arrays;

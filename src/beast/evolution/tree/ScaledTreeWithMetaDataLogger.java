@@ -1,9 +1,18 @@
 package beast.evolution.tree;
 
-import beast.core.*;
-import beast.core.parameter.Parameter;
-import beast.core.parameter.RealParameter;
-import beast.evolution.branchratemodel.BranchRateModel;
+
+import beast.base.inference.StateNode;
+import beast.base.inference.parameter.Parameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.evolution.TreeWithMetaDataLogger;
+import beast.base.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
 
 import java.io.PrintStream;
 import java.math.RoundingMode;
@@ -22,6 +31,7 @@ public class ScaledTreeWithMetaDataLogger  extends TreeWithMetaDataLogger implem
     private double scaleFactor;
 
     private DecimalFormat df;
+    boolean someMetaDataNeedsLogging;
 
 	@Override
 	public void initAndValidate() {
@@ -38,10 +48,17 @@ public class ScaledTreeWithMetaDataLogger  extends TreeWithMetaDataLogger implem
             df = new DecimalFormat("#."+new String(new char[dp]).replace('\0', '#'));
             df.setRoundingMode(RoundingMode.HALF_UP);
         }
+        
+        if (parameterInput.get().size() == 0 && clockModelInput.get() == null) {
+        	someMetaDataNeedsLogging = false;
+        } else {
+        	someMetaDataNeedsLogging = true;
+        }
+
 	}
 
     @Override
-	public void log(int nSample, PrintStream out) {
+	public void log(long nSample, PrintStream out) {
 		// make sure we get the current version of the inputs
         Tree tree = (Tree) treeInput.get().getCurrent();
         List<Function> metadata = parameterInput.get();
@@ -91,7 +108,7 @@ public class ScaledTreeWithMetaDataLogger  extends TreeWithMetaDataLogger implem
             }
             buf.append(")");
         } else {
-            buf.append(node.labelNr + 1);
+            buf.append(node.getNr() + 1);
         }
 
         if (someMetaDataNeedsLogging) {
@@ -106,17 +123,17 @@ public class ScaledTreeWithMetaDataLogger  extends TreeWithMetaDataLogger implem
                         if (dim > 1) {
                             buf.append('{');
                             for (int i = 0; i < dim; i++) {
-                                buf.append(p.getMatrixValue(node.labelNr, i));
+                                buf.append(p.getMatrixValue(node.getNr(), i));
                                 if (i < dim - 1) {
                                     buf.append(',');
                                 }
                             }
                             buf.append('}');
                         } else {
-                            buf.append(metadata.getArrayValue(node.labelNr));
+                            buf.append(metadata.getArrayValue(node.getNr()));
                         }
                     } else {
-                        buf.append(metadata.getArrayValue(node.labelNr));
+                        buf.append(metadata.getArrayValue(node.getNr()));
                     }
                     if (metadataList.indexOf(metadata) < metadataList.size() - 1) {
                         buf.append(",");
@@ -133,7 +150,7 @@ public class ScaledTreeWithMetaDataLogger  extends TreeWithMetaDataLogger implem
             buf.append(']');
         }
         buf.append(":");
-        if (substitutions) {
+        if (substitutionsInput.get()) {
             appendDouble(buf, node.getLength() * branchRateModel.getRateForBranch(node));
         } else {
             appendDouble(buf, node.getLength());

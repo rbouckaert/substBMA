@@ -1,8 +1,8 @@
 package beast;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
-import beast.core.parameter.RealParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
 import junit.framework.TestCase;
 

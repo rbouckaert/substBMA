@@ -1,6 +1,6 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
+import beast.base.core.Description;
 
 /**
  * @author Chieh-Hsi Wu

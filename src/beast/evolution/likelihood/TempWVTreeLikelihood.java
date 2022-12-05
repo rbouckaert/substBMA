@@ -1,19 +1,19 @@
 package beast.evolution.likelihood;
 
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.branchratemodel.BranchRateModel;
 import beast.evolution.sitemodel.DummySiteModel;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
-import beast.evolution.tree.Tree;
-import beast.evolution.sitemodel.SiteModel;
-import beast.core.Input;
-import beast.core.parameter.IntegerParameter;
-import beast.core.parameter.RealParameter;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.core.Input;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
 
 /**
  * @author Chieh-Hsi Wu

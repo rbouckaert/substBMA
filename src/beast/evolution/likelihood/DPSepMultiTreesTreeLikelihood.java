@@ -1,14 +1,14 @@
 package beast.evolution.likelihood;
 
-import beast.app.BeastMCMC;
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.alignment.Alignment;
+import beastfx.app.beast.BeastMCMC;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.ProgramStatus;
+import beast.base.evolution.alignment.Alignment;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
-import beast.evolution.tree.Tree;
-import org.omg.CORBA.PUBLIC_MEMBER;
+import beast.base.evolution.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,8 +56,8 @@ public class DPSepMultiTreesTreeLikelihood extends DPSepTreeLikelihood {
     private int[] alignmentStartingIndex;
     private int[] alignmentIndexBySite;
     public void initAndValidate() {
-        useThreads = useThreadsInput.get() && (BeastMCMC.m_nThreads > 1);
-        useThreadsEvenly = useThreadsEvenlyInput.get() && (BeastMCMC.m_nThreads > 1);
+        useThreads = useThreadsInput.get() && (ProgramStatus.m_nThreads > 1);
+        useThreadsEvenly = useThreadsEvenlyInput.get() && (ProgramStatus.m_nThreads > 1);
 
         alignments = alignmentsInput.get();
         alignmentStartingIndex = new int[alignments.size()];

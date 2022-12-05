@@ -1,12 +1,12 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.DPValuable;
-import beast.evolution.alignment.Alignment;
-import beast.util.Randomizer;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.util.Randomizer;
 
 /**
  * @author Chieh-Hsi
@@ -71,13 +71,13 @@ public class NtdBMARatePointersSwapOperator extends Operator {
         }*/
 
 
-        DPPointer paramPointers = paramPointersInput.get(this);
+        DPPointer paramPointers = paramPointersInput.get();
         paramPointers.swapPointers(site1, site2);
-        DPPointer modelPointers = modelPointersInput.get(this);
+        DPPointer modelPointers = modelPointersInput.get();
         modelPointers.swapPointers(site1, site2);
-        DPPointer freqPointers = freqPointersInput.get(this);
+        DPPointer freqPointers = freqPointersInput.get();
         freqPointers.swapPointers(site1, site2);
-        DPPointer ratesPointers = ratesPointersInput.get(this);
+        DPPointer ratesPointers = ratesPointersInput.get();
         ratesPointers.swapPointers(site1, site2);
 
         return 0.0;

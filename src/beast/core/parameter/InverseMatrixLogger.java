@@ -1,9 +1,10 @@
 package beast.core.parameter;
 
-import beast.core.BEASTObject;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.parameter.RealParameter;
 import beast.math.matrixAlgebra1.Matrix;
 
 import java.io.PrintStream;
@@ -28,7 +29,7 @@ public class InverseMatrixLogger extends BEASTObject implements Loggable {
     }
 
 
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
         int dim = (int)Math.sqrt(parameter.getDimension());
         double[][] mat = new double[dim][dim];
         int k = 0;

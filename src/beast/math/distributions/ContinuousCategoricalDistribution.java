@@ -1,7 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Function;
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.inference.distribution.ParametricDistribution;
 import beast.core.parameter.DPPointer;
 
 /**

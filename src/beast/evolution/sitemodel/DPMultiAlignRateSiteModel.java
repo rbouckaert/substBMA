@@ -1,11 +1,12 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
 import beast.core.MCMCNodeFactory;
 import beast.core.parameter.*;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.ArrayList;

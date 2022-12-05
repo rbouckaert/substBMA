@@ -1,7 +1,7 @@
 package beast.math.util;
 
 
-import beast.util.Randomizer;
+import beast.base.util.Randomizer;
 
 /**
  * Methods from MathUtils in BEAST1

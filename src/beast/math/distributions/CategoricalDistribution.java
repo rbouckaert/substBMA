@@ -1,9 +1,10 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.core.util.Log;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.core.Log;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.AbstractIntegerDistribution;
 import org.apache.commons.math.distribution.Distribution;
@@ -99,7 +100,7 @@ public class CategoricalDistribution extends ParametricDistribution {
 	}
 
     public double inverseCumulativeProbability(double p) throws MathException {
-    	    org.apache.commons.math.distribution.Distribution dist = getDistribution();
+    	    Distribution dist = getDistribution();
     		return ((IntegerDistribution)dist).inverseCumulativeProbability(p);
     }
 

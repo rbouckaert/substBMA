@@ -1,9 +1,10 @@
 package beast.core.parameter;
 
-import beast.core.CalculationNode;
-import beast.core.Function;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.inference.CalculationNode;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
 
 import java.io.PrintStream;
 
@@ -55,7 +56,7 @@ public class ScaledParameter extends CalculationNode implements Function, Loggab
         out.print(getID()+(i+1)+"\t");
     }
 
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
 
         int dim = parameter.getDimension();
         for(int i = 0; i < dim;i++){

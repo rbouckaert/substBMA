@@ -1,8 +1,16 @@
 package beast.evolution.tree;
 
-import beast.core.*;
+
 
 import java.util.List;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.StateNode;
+import beast.base.inference.StateNodeInitialiser;
+
 import java.util.ArrayList;
 
 /**
@@ -60,13 +68,14 @@ public class TreeScaler extends Tree implements StateNodeInitialiser{
     public void scaleNodeHeight(Node node, double fScale){
         if (!node.isLeaf()) {
             //System.err.println(node.m_fHeight);
-            node.height *= fScale;
+            node.setHeight(node.getHeight() * fScale);
             //System.err.println(node.m_fHeight);
             scaleNodeHeight(node.getLeft(),fScale);
             if (node.getRight() != null) {
                 scaleNodeHeight(node.getRight(),fScale);
             }
-            if (node.height <node.getLeft().height || node.height < node.getRight().height) {
+            if (node.getHeight() <node.getLeft().getHeight() || 
+            		node.getHeight() < node.getRight().getHeight()) {
                 throw new RuntimeException("Scale gives negative branch length");
             }
         }

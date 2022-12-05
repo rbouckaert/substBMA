@@ -1,7 +1,16 @@
 package beast;
 
-import beast.math.distributions.*;
-import beast.core.parameter.*;
+import beast.base.inference.distribution.Normal;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.inference.parameter.RealParameter;
+import beast.core.parameter.DPPointer;
+import beast.core.parameter.DPValuable;
+import beast.core.parameter.ParameterList;
+import beast.core.parameter.QuietRealParameter;
+import beast.math.distributions.DirichletProcess;
+import beast.math.distributions.MultivariateNormal;
+import beast.math.distributions.ParameterListPrior;
 import junit.framework.TestCase;
 
 /**

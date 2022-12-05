@@ -1,13 +1,14 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.Distribution;
-import beast.core.State;
-import beast.core.Input;
+
+import beast.base.core.Description;
+import beast.base.inference.Distribution;
+import beast.base.inference.State;
+import beast.base.core.Input;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
-import beast.math.distributions.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.distribution.ParametricDistribution;
 
 import java.util.Random;
 import java.util.List;

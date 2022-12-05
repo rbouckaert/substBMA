@@ -1,6 +1,6 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.ChangeType;
 
 import java.util.ArrayList;

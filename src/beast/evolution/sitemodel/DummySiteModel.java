@@ -1,6 +1,7 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
+import beast.base.core.Description;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.core.parameter.QuietRealParameter;
 
 /**

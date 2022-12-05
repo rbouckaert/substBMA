@@ -1,11 +1,11 @@
 package beast.evolution.operators;
 
-import beast.core.parameter.IntegerParameter;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.core.Description;
+import beast.base.util.Randomizer;
 import beast.core.parameter.ParameterList;
-import beast.core.Input;
-import beast.core.Operator;
-import beast.core.Description;
-import beast.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -54,7 +54,7 @@ public class PLDeltaExchangeOperator extends Operator {
         //System.err.println("PLDE");
         double logq = 0.0;
         // get two dimensions
-        ParameterList parameterList = parameterListInput.get(this);
+        ParameterList parameterList = parameterListInput.get();
         int iParam = Randomizer.nextInt(parameterList.getDimension());
         int dimVal = parameterList.getParameterDimension();
         final int iValue1 = Randomizer.nextInt(dimVal);

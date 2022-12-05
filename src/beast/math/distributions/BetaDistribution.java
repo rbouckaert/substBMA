@@ -1,8 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Function;
-import beast.core.parameter.RealParameter;
-import beast.util.Randomizer;
+import beast.base.core.Function;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,7 +38,7 @@ public class BetaDistribution extends DirichletDistribution {
 
     @Override
     public Double[][] sample(int size){
-        double scaleVal = scale.getValue();
+        double scaleVal = scale.getArrayValue();
         Double[][] samples = new Double[size][1];
         try{
 
@@ -46,7 +46,7 @@ public class BetaDistribution extends DirichletDistribution {
                 Double[] dirichletSample = new Double[2];
                 double sum = 0.0;
                 for(int j  =0; j < 2;j++){
-                    dirichletSample[j] = Randomizer.nextGamma(alpha.getValue(j) * scaleVal, 1.0);
+                    dirichletSample[j] = Randomizer.nextGamma(alpha.getArrayValue(j) * scaleVal, 1.0);
                     sum += dirichletSample[j];
                 }
 
@@ -135,8 +135,8 @@ public class BetaDistribution extends DirichletDistribution {
     @Override
     public double calcLogP(Function pX) {
 
-        double scaleVal = scale.getValue();
-        Double [] fAlpha = alpha.getValues();
+        double scaleVal = scale.getArrayValue();
+        double [] fAlpha = alpha.getDoubleValues();
 
         if(pX.getArrayValue() == 1.0 || pX.getArrayValue()== 0.0){
             return Double.NEGATIVE_INFINITY;

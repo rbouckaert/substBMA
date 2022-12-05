@@ -1,5 +1,8 @@
 package beast.core;
 
+import beast.base.core.Description;
+import beast.base.inference.CalculationNode;
+
 /**
  * @author Chieh-Hsi Wu
  */
@@ -7,12 +10,10 @@ package beast.core;
 public class MCMCNodeFactory {
 
     public static void checkDirtiness(CalculationNode calcNode){
-        calcNode.checkDirtiness();
-
+        calcNode.isDirtyCalculation();
     }
 
-    public static void makeAccept(CalculationNode calcNode){
-        calcNode.accept();
-
-    }
+//    public static void makeAccept(CalculationNode calcNode){
+//        calcNode.accept();
+//    }
 }

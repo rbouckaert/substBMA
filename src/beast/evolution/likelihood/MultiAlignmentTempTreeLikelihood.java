@@ -1,15 +1,15 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.evolution.alignment.Alignment;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.branchratemodel.BranchRateModel;
 import beast.evolution.alignment.AlignmentSubset;
-import beast.evolution.branchratemodel.BranchRateModel;
 import beast.evolution.sitemodel.DPMultiAlignSiteModel;
 import beast.evolution.sitemodel.DummySiteModel;
 import beast.evolution.sitemodel.QuietSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.NtdBMA;
 
 import java.util.ArrayList;

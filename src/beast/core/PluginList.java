@@ -1,5 +1,7 @@
 package beast.core;
 
+import beast.base.core.Description;
+
 /**
  * @author Chieh-Hsi Wu
  */

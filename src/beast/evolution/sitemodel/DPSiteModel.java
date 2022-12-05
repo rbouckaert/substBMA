@@ -1,12 +1,13 @@
 package beast.evolution.sitemodel;
 
-import beast.core.CalculationNode;
-import beast.core.Description;
+import beast.base.inference.CalculationNode;
+import beast.base.core.Description;
 import beast.core.PluginList;
-import beast.core.Input;
+import beast.base.core.Input;
 import beast.core.parameter.ChangeType;
-import beast.core.parameter.RealParameter;
-import beast.evolution.datatype.DataType;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.datatype.DataType;
+import beast.base.evolution.sitemodel.SiteModelInterface;
 import beast.evolution.substitutionmodel.DPNtdBMA;
 
 import java.util.ArrayList;

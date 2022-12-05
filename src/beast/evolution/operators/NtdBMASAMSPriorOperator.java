@@ -1,8 +1,9 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.DPPointer;
 import beast.core.parameter.DPValuable;
 import beast.core.parameter.ParameterList;
@@ -13,8 +14,8 @@ import beast.evolution.likelihood.SlowDPSepTreeLikelihood;
 import beast.evolution.likelihood.TempWVTreeLikelihood;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.math.distributions.CompoundDirichletProcess;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.util.Randomizer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -346,12 +347,12 @@ public class NtdBMASAMSPriorOperator extends Operator {
 
             logqSplit += paramBaseDistr.calcLogP(newParam) + modelBaseDistr.calcLogP(newModel)+freqsBaseDistr.calcLogP(newFreqs);
             if(-logqSplit > Double.NEGATIVE_INFINITY){
-                paramList  = paramListInput.get(this);
-                modelList  = modelListInput.get(this);
-                freqsList  = freqsListInput.get(this);
-                paramPointers = paramPointersInput.get(this);
-                modelPointers = modelPointersInput.get(this);
-                freqsPointers = freqsPointersInput.get(this);
+                paramList  = paramListInput.get();
+                modelList  = modelListInput.get();
+                freqsList  = freqsListInput.get();
+                paramPointers = paramPointersInput.get();
+                modelPointers = modelPointersInput.get();
+                freqsPointers = freqsPointersInput.get();
                 //Perform a split
                 paramList.splitParameter(clusterIndex,newParam);
                 modelList.splitParameter(clusterIndex,newModel);

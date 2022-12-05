@@ -1,9 +1,14 @@
 package beast.core.parameter;
 
-import beast.core.*;
 
 import java.io.PrintStream;
 import java.util.Arrays;
+
+import beast.base.core.Description;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.inference.CalculationNode;
 
 /**
  * @author Chieh-Hsi Wu
@@ -231,7 +236,7 @@ public class DPValuable extends CalculationNode implements Function, Loggable{
 
     }
 
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
         //
         /*System.out.println(clusterSites.length);
         String s ="{";

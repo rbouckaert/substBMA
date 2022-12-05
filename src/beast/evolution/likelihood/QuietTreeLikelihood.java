@@ -1,15 +1,18 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.AscertainedAlignment;
-import beast.evolution.branchratemodel.BranchRateModel;
-import beast.evolution.branchratemodel.StrictClockModel;
-import beast.evolution.sitemodel.SiteModel;
-import beast.evolution.substitutionmodel.SubstitutionModel;
-import beast.evolution.tree.Node;
-import beast.evolution.tree.Tree;
+
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.AscertainedAlignment;
+import beast.base.evolution.branchratemodel.BranchRateModel;
+import beast.base.evolution.branchratemodel.StrictClockModel;
+import beast.base.evolution.likelihood.GenericTreeLikelihood;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -138,8 +141,8 @@ public class QuietTreeLikelihood extends TreeLikelihood{
      * // taking ambiguities in account, there is a contribution of 1 from
      * // the 'site invariant' category.
      */
-    void calcConstantPatternIndices(final int nPatterns, final int nStateCount) {
-        constantPattern = new ArrayList<>();
+    protected void calcConstantPatternIndices(final int nPatterns, final int nStateCount) {
+        List constantPattern = new ArrayList<>();
         for (int i = 0; i < nPatterns; i++) {
             final int[] pattern = data.getPattern(i);
             final boolean[] bIsInvariant = new boolean[nStateCount];
@@ -158,6 +161,7 @@ public class QuietTreeLikelihood extends TreeLikelihood{
                 }
             }
         }
+        setConstantPattern(constantPattern);
     }
 
     protected void initCore() {
@@ -231,6 +235,10 @@ public class QuietTreeLikelihood extends TreeLikelihood{
         }
     }
 
+    double m_fScale = 1.01;
+    int m_nScale = 0;
+    int X = 100;
+
     @Override
     public double calculateLogP() {
         if (beagle != null) {
@@ -265,7 +273,7 @@ public class QuietTreeLikelihood extends TreeLikelihood{
         return logP;
     }
 
-    void calcLogP() {
+    protected void calcLogP() {
         logP = 0.0;
         if (useAscertainedSitePatterns) {
             final double ascertainmentCorrection = ((AscertainedAlignment) data).getAscertainmentCorrection(patternLogLikelihoods);
@@ -288,7 +296,7 @@ public class QuietTreeLikelihood extends TreeLikelihood{
     @Override
     protected boolean requiresRecalculation() {
         if (beagle != null) {
-            return beagle.requiresRecalculation();
+            return super.requiresRecalculation();
         }
         hasDirt = Tree.IS_CLEAN;
 

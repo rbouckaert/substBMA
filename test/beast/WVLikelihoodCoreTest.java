@@ -1,17 +1,17 @@
 package beast;
 
-import beast.core.MCMCNodeFactory;
-import beast.evolution.alignment.Sequence;
-import beast.util.TreeParser;
+import beast.base.evolution.alignment.Sequence;
+import beast.base.evolution.tree.TreeParser;
 import junit.framework.TestCase;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.tree.Tree;
-import beast.evolution.substitutionmodel.Frequencies;
-import beast.evolution.substitutionmodel.HKY;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.substitutionmodel.Frequencies;
+import beast.base.evolution.substitutionmodel.HKY;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.likelihood.NewWVTreeLikelihood;
-import beast.evolution.likelihood.TreeLikelihood;
-import beast.core.parameter.RealParameter;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.inference.parameter.RealParameter;
+import beast.core.MCMCNodeFactory;
 
 
 /**

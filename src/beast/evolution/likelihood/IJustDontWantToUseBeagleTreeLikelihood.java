@@ -1,9 +1,12 @@
 package beast.evolution.likelihood;
 
-import beast.evolution.alignment.AscertainedAlignment;
-import beast.evolution.branchratemodel.StrictClockModel;
-import beast.evolution.sitemodel.SiteModel;
-import beast.evolution.substitutionmodel.SubstitutionModel;
+import beast.base.evolution.alignment.AscertainedAlignment;
+import beast.base.evolution.branchratemodel.StrictClockModel;
+import beast.base.evolution.likelihood.BeerLikelihoodCore;
+import beast.base.evolution.likelihood.BeerLikelihoodCore4;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.substitutionmodel.SubstitutionModel;
 
 import java.util.Arrays;
 

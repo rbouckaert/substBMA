@@ -1,8 +1,8 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.alignment.Alignment;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
 
 import java.util.ArrayList;
 import java.util.List;

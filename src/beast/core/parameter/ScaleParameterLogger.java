@@ -1,9 +1,9 @@
 package beast.core.parameter;
 
-import beast.core.BEASTObject;
-import beast.core.Function;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.core.BEASTObject;
+import beast.base.core.Function;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
 import beast.evolution.tree.Scaler;
 
 import java.io.PrintStream;
@@ -55,7 +55,7 @@ public class ScaleParameterLogger extends BEASTObject implements Loggable{
     }
 
 
-    public void log(int nSample, PrintStream out){
+    public void log(long nSample, PrintStream out){
         int dim = parameter.getDimension();
         if(divide){
             for(int i = 0; i < dim; i++){

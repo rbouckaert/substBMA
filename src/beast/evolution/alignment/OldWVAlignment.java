@@ -1,8 +1,9 @@
 package beast.evolution.alignment;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.tree.Tree;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.tree.Tree;
 
 /**
  * @author Chieh-Hsi Wu

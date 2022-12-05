@@ -1,9 +1,9 @@
 package beast;
 
-import beast.core.parameter.RealParameter;
+import beast.base.inference.parameter.RealParameter;
 import beast.evolution.sitemodel.GeneralJC69;
-import beast.evolution.substitutionmodel.Frequencies;
-import beast.evolution.substitutionmodel.GeneralSubstitutionModel;
+import beast.base.evolution.substitutionmodel.Frequencies;
+import beast.base.evolution.substitutionmodel.GeneralSubstitutionModel;
 import junit.framework.TestCase;
 
 /**

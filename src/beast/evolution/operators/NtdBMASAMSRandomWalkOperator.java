@@ -1,8 +1,8 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
 import beast.core.parameter.*;
 import beast.evolution.likelihood.DPSepTreeLikelihood;
 import beast.evolution.likelihood.DPTreeLikelihood;
@@ -12,8 +12,9 @@ import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.math.distributions.CompoundDirichletProcess;
 import beast.math.distributions.DirichletDistribution;
 import beast.math.distributions.MultivariateNormal;
-import beast.math.distributions.ParametricDistribution;
-import beast.util.Randomizer;
+import beast.base.inference.distribution.ParametricDistribution;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -347,12 +348,12 @@ public class NtdBMASAMSRandomWalkOperator extends Operator {
             //System.out.println(currFreqs+" "+newFreqs+" "+getFrequenciesLogProposalDensity(currFreqs,newFreqs));
 
             if(-logqSplit > Double.NEGATIVE_INFINITY){
-                paramList  = paramListInput.get(this);
-                modelList  = modelListInput.get(this);
-                freqsList  = freqsListInput.get(this);
-                paramPointers = paramPointersInput.get(this);
-                modelPointers = modelPointersInput.get(this);
-                freqsPointers = freqsPointersInput.get(this);
+                paramList  = paramListInput.get();
+                modelList  = modelListInput.get();
+                freqsList  = freqsListInput.get();
+                paramPointers = paramPointersInput.get();
+                modelPointers = modelPointersInput.get();
+                freqsPointers = freqsPointersInput.get();
                 //Perform a split
                 paramList.splitParameter(clusterIndex,newParam);
                 modelList.splitParameter(clusterIndex,newModel);

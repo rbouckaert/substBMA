@@ -1,8 +1,9 @@
 package beast.evolution.alignment;
 
-import beast.core.BEASTObject;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.core.BEASTObject;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
+import beast.base.evolution.alignment.Alignment;
 
 import java.io.PrintStream;
 
@@ -60,7 +61,7 @@ public class MultinomialTestStatistic extends BEASTObject implements Loggable {
 
 
     @Override
-    public void log(final int nSample, final PrintStream out) {
+    public void log(long nSample, final PrintStream out) {
 
         out.print(multinomialTestStatistic + "\t");
     }

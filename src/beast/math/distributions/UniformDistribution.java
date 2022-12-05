@@ -1,9 +1,12 @@
 package beast.math.distributions;
 
-import beast.core.Input;
-import beast.core.Description;
-import org.apache.commons.math.distribution.Distribution;
+
+import beast.base.core.Input;
+import beast.base.core.Description;
+import beast.base.inference.distribution.ParametricDistribution;
+
 import org.apache.commons.math.distribution.ContinuousDistribution;
+import org.apache.commons.math.distribution.Distribution;
 import org.apache.commons.math.MathException;
 
 

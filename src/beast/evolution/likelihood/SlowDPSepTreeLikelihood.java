@@ -1,12 +1,13 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
-import beast.core.MCMCNodeFactory;
+import beast.base.core.Description;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
-import beast.evolution.sitemodel.SiteModel;
+import beast.base.evolution.likelihood.TreeLikelihood;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
+import beast.core.MCMCNodeFactory;
 import beast.core.parameter.ChangeType;
-import beast.core.Input;
+import beast.base.core.Input;
 
 import java.util.ArrayList;
 

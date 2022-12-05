@@ -1,14 +1,14 @@
 package beast.evolution.likelihood;
 
-import beast.core.Description;
+import beast.base.core.Description;
 import beast.core.parameter.QuietRealParameter;
 import beast.evolution.sitemodel.DPNtdRateSepSiteModel;
 import beast.evolution.sitemodel.DummySiteModel;
 import beast.evolution.substitutionmodel.SwitchingNtdBMA;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.tree.Tree;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.tree.Tree;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -256,7 +256,7 @@ public class SepTempWVTreeLikelihood extends TempWVTreeLikelihood{
 
         calcLogP();
 
-        m_nScale++;
+        // m_nScale++;
         /*if (logP > 0 || (m_likelihoodCore.getUseScaling() && m_nScale > X)) {
             //System.err.println("Switch off scaling");
             m_likelihoodCore.setUseScaling(1.0);

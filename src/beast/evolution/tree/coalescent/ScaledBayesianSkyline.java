@@ -1,8 +1,11 @@
 package beast.evolution.tree.coalescent;
 
-import beast.core.Input;
+import beast.base.core.Input;
+import beast.base.core.Log;
+import beast.base.evolution.tree.IntervalType;
+import beast.base.evolution.tree.coalescent.BayesianSkyline;
 import beast.evolution.tree.Scaler;
-import beast.math.Binomial;
+import beast.base.util.Binomial;
 
 /**
  * Created by IntelliJ IDEA.
@@ -34,60 +37,62 @@ public class ScaledBayesianSkyline extends BayesianSkyline {
 
     @Override
     public double calculateLogP() {
-        if (!m_bIsPrepared) {
-            prepare();
-        }
-
-        logP = 0.0;
-
-        double scaleFactor = scaler.getScaleFactor();
-
-        double currentTime = 0.0;
-
-        int groupIndex = 0;
-        // int[] groupSizes = getGroupSizes();
-        // double[] groupEnds = getGroupHeights();
-
-        int subIndex = 0;
-
-        //ConstantPopulation cp = new ConstantPopulation();// Units.Type.YEARS);
-
-        for (int j = 0; j < intervals.getIntervalCount(); j++) {
-
-            // set the population size to the size of the middle of the current
-            // interval
-            final double ps = getPopSize(currentTime + (intervals.getInterval(j) / 2.0));
-            //cp.setN0(ps);
-            if (intervals.getIntervalType(j) == IntervalType.COALESCENT) {
-                subIndex += 1;
-                if (subIndex >= groupSizes.getValue(groupIndex)) {
-                    groupIndex += 1;
-                    subIndex = 0;
-                }
-            }
-
-            logP += calculateIntervalLikelihood(ps, intervals.getInterval(j), currentTime,
-                    intervals.getLineageCount(j), intervals.getIntervalType(j),
-                    scaleFactor);
-
-            // insert zero-length coalescent intervals
-            int diff = intervals.getCoalescentEvents(j) - 1;
-            for (int k = 0; k < diff; k++) {
-                //cp.setN0(getPopSize(currentTime));
-                double fPopSize = getPopSize(currentTime);
-                logP += calculateIntervalLikelihood(fPopSize, 0.0,
-                        currentTime, intervals.getLineageCount(j) - k - 1,
-                        IntervalType.COALESCENT,
-                        scaleFactor);
-                subIndex += 1;
-                if (subIndex >= groupSizes.getValue(groupIndex)) {
-                    groupIndex += 1;
-                    subIndex = 0;
-                }
-            }
-
-            currentTime += intervals.getInterval(j);
-        }
+    	Log.warning("This class (ScaledBayesianSkyline) should not be used");
+// RRB: causes a lot of access issues and this class is not used anywhere    	
+//        if (!m_bIsPrepared) {
+//            prepare();
+//        }
+//
+//        logP = 0.0;
+//
+//        double scaleFactor = scaler.getScaleFactor();
+//
+//        double currentTime = 0.0;
+//
+//        int groupIndex = 0;
+//        // int[] groupSizes = getGroupSizes();
+//        // double[] groupEnds = getGroupHeights();
+//
+//        int subIndex = 0;
+//
+//        //ConstantPopulation cp = new ConstantPopulation();// Units.Type.YEARS);
+//
+//        for (int j = 0; j < intervals.getIntervalCount(); j++) {
+//
+//            // set the population size to the size of the middle of the current
+//            // interval
+//            final double ps = getPopSize(currentTime + (intervals.getInterval(j) / 2.0));
+//            //cp.setN0(ps);
+//            if (intervals.getIntervalType(j) == IntervalType.COALESCENT) {
+//                subIndex += 1;
+//                if (subIndex >= groupSizes.getValue(groupIndex)) {
+//                    groupIndex += 1;
+//                    subIndex = 0;
+//                }
+//            }
+//
+//            logP += calculateIntervalLikelihood(ps, intervals.getInterval(j), currentTime,
+//                    intervals.getLineageCount(j), intervals.getIntervalType(j),
+//                    scaleFactor);
+//
+//            // insert zero-length coalescent intervals
+//            int diff = intervals.getCoalescentEvents(j) - 1;
+//            for (int k = 0; k < diff; k++) {
+//                //cp.setN0(getPopSize(currentTime));
+//                double fPopSize = getPopSize(currentTime);
+//                logP += calculateIntervalLikelihood(fPopSize, 0.0,
+//                        currentTime, intervals.getLineageCount(j) - k - 1,
+//                        IntervalType.COALESCENT,
+//                        scaleFactor);
+//                subIndex += 1;
+//                if (subIndex >= groupSizes.getValue(groupIndex)) {
+//                    groupIndex += 1;
+//                    subIndex = 0;
+//                }
+//            }
+//
+//            currentTime += intervals.getInterval(j);
+//        }
         return logP;
     }
 

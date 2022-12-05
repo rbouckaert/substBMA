@@ -1,10 +1,10 @@
 package beast;
 
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.AscertainedAlignment;
-import beast.evolution.alignment.Sequence;
-import beast.evolution.tree.Tree;
-import beast.util.TreeParser;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.AscertainedAlignment;
+import beast.base.evolution.alignment.Sequence;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.tree.TreeParser;
 import junit.framework.TestCase;
 import org.junit.Ignore;
 

@@ -1,7 +1,8 @@
 package beast.math.distributions;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.distribution.Prior;
 import beast.core.parameter.ParameterList;
 
 /**

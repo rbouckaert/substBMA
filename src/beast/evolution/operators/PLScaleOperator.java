@@ -1,12 +1,13 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
+import beast.base.core.Description;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.inference.parameter.BooleanParameter;
+import beast.base.core.Input;
+import beast.base.evolution.operator.ScaleOperator;
+import beast.base.evolution.tree.Tree;
+import beast.base.util.Randomizer;
 import beast.core.parameter.ParameterList;
-import beast.core.parameter.RealParameter;
-import beast.core.parameter.BooleanParameter;
-import beast.core.Input;
-import beast.evolution.tree.Tree;
-import beast.util.Randomizer;
 
 /**
  * @author Chieh-Hsi Wu
@@ -46,8 +47,8 @@ public class PLScaleOperator extends ScaleOperator{
             double hastingsRatio;
             final double scale = getScaler();
 
-            if (m_bIsTreeScaler) {
-                Tree tree = treeInput.get(this);
+            if (isTreeScaler()) {
+                Tree tree = treeInput.get();
                 // scale the beast.tree
                 final int nInternalNodes = tree.scale(scale);
                 return Math.log(scale) * (nInternalNodes - 2);
@@ -58,7 +59,7 @@ public class PLScaleOperator extends ScaleOperator{
             final int nDegreesOfFreedom = degreesOfFreedomInput.get();
             final boolean bScaleAllIndependently = scaleAllIndependentlyInput.get();
 
-            final ParameterList param = parameterListInput.get(this);
+            final ParameterList param = parameterListInput.get();
 
             int pIndex = 0;
             if(param.getDimension()>1)

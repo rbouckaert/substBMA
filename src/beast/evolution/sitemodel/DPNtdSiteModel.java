@@ -1,7 +1,8 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
-import beast.core.Input;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.sitemodel.SiteModel;
 import beast.core.MCMCNodeFactory;
 import beast.core.parameter.ChangeType;
 import beast.core.parameter.QuietRealParameter;

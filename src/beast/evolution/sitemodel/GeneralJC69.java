@@ -1,10 +1,10 @@
 package beast.evolution.sitemodel;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.substitutionmodel.EigenDecomposition;
-import beast.evolution.substitutionmodel.GeneralSubstitutionModel;
-import beast.evolution.tree.Node;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.substitutionmodel.EigenDecomposition;
+import beast.base.evolution.substitutionmodel.GeneralSubstitutionModel;
+import beast.base.evolution.tree.Node;
 
 /**
  * @author Chieh-Hsi Wu

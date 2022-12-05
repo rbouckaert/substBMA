@@ -1,11 +1,11 @@
 package beast.evolution.tree;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Loggable;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Loggable;
 import beast.evolution.tree.Scaler;
-import beast.evolution.tree.Tree;
-import beast.evolution.tree.TreeHeightLogger;
+import beast.base.evolution.tree.Tree;
+import beast.base.evolution.tree.TreeHeightLogger;
 
 import java.io.PrintStream;
 
